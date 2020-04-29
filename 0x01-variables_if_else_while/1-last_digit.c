@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-/* more headers goes there */
-
-/* betty style doc for function main goes there */
+/**
+ * main - Function that prints a random number and also its last digit.
+ *
+ * Return: exit successful exit.
+ */
 int main(void)
 {
 	int n;
