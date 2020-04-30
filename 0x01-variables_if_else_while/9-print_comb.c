@@ -8,10 +8,10 @@
 
 int main(void)
 {
-	char NumberFrom0To9, StoredNumber;
+	unsigned int NumberFrom0To9, StoredNumber;
 
 	NumberFrom0To9 = '0';
-	while(NumberFrom0To9 != ('\n' + 1))
+	while (NumberFrom0To9 != ('\n' + 1))
 	{
 		putchar(NumberFrom0To9++);
 		if (NumberFrom0To9 > '0' && NumberFrom0To9 <= '9')
@@ -20,12 +20,12 @@ int main(void)
 			NumberFrom0To9 = ' ';
 		else if (NumberFrom0To9 == (' ' + 1))
 			NumberFrom0To9 = StoredNumber;
-
-/* When the variable reaches 9, in the putchar function 1 is immediately
-   added and this is my limit condition*/
-
 		else if (NumberFrom0To9 == ('9' + 1))
 			NumberFrom0To9 = '\n';
+/*
+ * When the variable reaches 9, in the putchar function 1 is immediately
+ * added and this is my limit condition
+ */
 	}
 	return (0);
 }
