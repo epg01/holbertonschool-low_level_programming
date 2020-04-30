@@ -14,8 +14,7 @@
 
 int main(void)
 {
-	char FirstDigit, SecondDigit,  StoredCharacter;
-	int Accountant;
+	unsigned int FirstDigit, SecondDigit,  StoredCharacter, Accountant;
 
 	FirstDigit = VALUEINICIAL;
 	SecondDigit = VALUEINICIAL + 1;
