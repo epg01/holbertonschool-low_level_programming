@@ -5,14 +5,17 @@
  */
 int main(void)
 {
-	unsigned int Accountant1, Accountant2, Accountant3, StoredCharacter;
+	unsigned int Accountant1, Accountant2, StoredCharacter, Accountant3;
 
-	Accountant1 = '0', Accountant2 = '0';
-	Accountant3 = 0, StoredCharacter = '\0';
+	Accountant1 = '0';
+	Accountant2 = '0';
+	Accountant3 = 0;
+	StoredCharacter = '0';
 
-	while (StoredCharacter != ('\n' + 1))
+	while(StoredCharacter != ('\n' + 1))
 	{
 		putchar(StoredCharacter);
+
 		if (Accountant2 > '9')
 		{
 			Accountant2 = '0';
@@ -28,16 +31,11 @@ int main(void)
 			Accountant2++;
 		}
 		if (Accountant3 == 2)
-		{
-			StoredCharacter = ',';
-			Accountant3 = 0;
-		}
-		else if (StoredCharacter == ',')
+			StoredCharacter = ',', Accountant3 = 0;
+		else if(StoredCharacter == ',')
 			StoredCharacter = ' ';
 		else if (StoredCharacter == ' ')
 			StoredCharacter = Accountant1;
-
-		/* Inicialización */
 
 		if (StoredCharacter == '\n')
 			StoredCharacter++;
