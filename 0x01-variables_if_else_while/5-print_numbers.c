@@ -11,7 +11,7 @@ int main(void)
 {
 	unsigned char NumberDecimal;
 
-	for(NumberDecimal = '0'; NumberDecimal != ('\n' + 1); NumberDecimal++)
+	for (NumberDecimal = '0'; NumberDecimal != ('\n' + 1); NumberDecimal++)
 	{
 		if (NumberDecimal == ('9' + 1))
 			NumberDecimal = '\n';
