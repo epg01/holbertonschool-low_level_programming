@@ -33,8 +33,8 @@ int main(void)
 			Accountant3 = 0;
 		}
 		else if (StoredCharacter == ',')
-			StoredCharacter = '_';
-		else if (StoredCharacter == '_')
+			StoredCharacter = ' ';
+		else if (StoredCharacter == ' ')
 			StoredCharacter = Accountant1;
 
 		/* Inicialización */
