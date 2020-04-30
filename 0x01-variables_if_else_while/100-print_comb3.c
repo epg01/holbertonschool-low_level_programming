@@ -18,7 +18,7 @@ int main(void)
 	int Accountant;
 
 	FirstDigit = VALUEINICIAL;
-	SecondDigit = VALUEINICIAL;
+	SecondDigit = VALUEINICIAL + 1;
 	Accountant = NUMBER0;
 	StoredCharacter = VALUEINICIAL;
 
