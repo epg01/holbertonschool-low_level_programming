@@ -11,8 +11,12 @@ int main(void)
 	char AlphabetLowerCase;
 
 	AlphabetLowerCase = 'a';
-	for (; AlphabetLowerCase <= 'z'; AlphabetLowerCase++)
+	for (; AlphabetLowerCase != ('\n' + 1); ++AlphabetLowerCase)
+	{
+		if (AlphabetLowerCase == ('z' + 1))
+			AlphabetLowerCase = '\n';
 		if ((AlphabetLowerCase != 'e') && (AlphabetLowerCase != 'q'))
-		    putchar(AlphabetLowerCase);
+			putchar(AlphabetLowerCase);
+	}
 	return (0);
 }
