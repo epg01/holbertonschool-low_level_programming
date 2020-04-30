@@ -41,7 +41,7 @@ int main(void)
 
 		if (StoredCharacter == '\n')
 			StoredCharacter++;
-		else if (Accountant1 == ('0' + 1))
+		else if (Accountant1 == ('9' + 1))
 			StoredCharacter = '\n';
 	}
 	return (0);
