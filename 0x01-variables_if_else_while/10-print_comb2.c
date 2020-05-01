@@ -5,33 +5,33 @@
  */
 int main(void)
 {
-	unsigned int Accountant1, Accountant2, StoredCharacter, Accountant3;
+	unsigned int FirstDigit, SecondDigit, StoredCharacter, Accountant;
 
-	Accountant1 = '0';    /* this variable controls the first character */
-	Accountant2 = '0';    /* this variable controls the second character */
+	FirstDigit = '0';
+	SecondDigit = '0';
 /* Indicates whether or not StoredCharacter is in a number */
-	Accountant3 = 0;
+	Accountant = 0;
 	StoredCharacter = '0';
 
 	while (StoredCharacter != ('\n' + 1))
 	{
 		putchar(StoredCharacter);
 
-		if (Accountant2 > '9')
-			Accountant2 = '0', Accountant1++;
+		if SecondDigit > '9')
+			SecondDigit = '0', FirstDigit++;
 
 		if (StoredCharacter >= '0' && StoredCharacter <= '9')
-			Accountant3++;
+			Accountant++;
 
 		if (Accountant3 == 1)
-			StoredCharacter = Accountant2, Accountant2++;
+			StoredCharacter = SecondDigit, SecondDigit++;
 
 		if (Accountant3 == 2)
-			StoredCharacter = ',', Accountant3 = 0;
+			StoredCharacter = ',', Accountant = 0;
 		else if (StoredCharacter == ',')
 			StoredCharacter = ' ';
 		else if (StoredCharacter == ' ')
-			StoredCharacter = Accountant1;
+			StoredCharacter = FirstDigit;
 
 /*
  * this nested if controls the while condition, when Accountant reaches 10,
@@ -40,7 +40,7 @@ int main(void)
 
 		if (StoredCharacter == '\n')
 			StoredCharacter++;
-		else if (Accountant1 == ('9' + 1))
+		else if (FirstDigit == ('9' + 1))
 			StoredCharacter = '\n';
 	}
 	return (0);
