@@ -45,3 +45,23 @@ it is appreciated that a dollar sign appears, this means that there are no space
 Authors ✒️
 
 * Emmanuel Palacio Gaviria. 
+
+Gratitude 🎁
+
+To my master:
+* [Fredy Mena Andreda](https://github.com/xfry)
+
+To my friends:
+* [Evert escalante](https://github.com/Evertcolombia)
+* [Jordan Buitrago](https://github.com/jordanbsandoval)
+* [Santiago aldana](https://github.com/paisap)
+* [Nicolas Forero](https://github.com/NickForero11)
+* [Daniel Perez](https://github.com/d1sd41n)
+* [Juan Olivares](https://github.com/JuanOlivares1)
+
+two very important people in this academy:
+* Andrea Jaramillo.
+* Laura Restrepo.
+
+And finally to
+* [Holberton](https://www.holbertonschool.com/co)  :yellow_heart:
