@@ -23,7 +23,7 @@ int main(void)
 		}
 
 		if (ThirdDigit == ('9' + 1))
-			SecondDigit++, ThirdDigit = '0', FourthDigit = SecondDigit + 1;
+			SecondDigit++, ThirdDigit = FirstDigit, FourthDigit = SecondDigit + 1;
 		if (SecondDigit == ('9' + 1))
 			FirstDigit++, SecondDigit = '0', ThirdDigit = FirstDigit, FourthDigit = SecondDigit + 1;
 
