@@ -1,14 +1,12 @@
 #include <stdio.h>
-
 /**
  * main - program that prints all possible different
  *        combinations of three digits.
  * Return: exit successfull.
  */
-
 int main(void)
 {
-        unsigned int FirstDigit, SecondDigit, ThirdDigit, StoredCharacter;
+	unsigned int FirstDigit, SecondDigit, ThirdDigit, StoredCharacter;
 	unsigned int Accountant;
 
 	FirstDigit  = '0';
@@ -44,4 +42,5 @@ int main(void)
 		else if ((FirstDigit == '7') && (SecondDigit == '9'))
 			StoredCharacter = '\n';
 	}
+	return (0);
 }
