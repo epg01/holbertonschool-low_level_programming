@@ -42,6 +42,8 @@ which gives us the following output.
 
 it is appreciated that a dollar sign appears, this means that there are no space characters (tab), at the end of the character '9' the program executes a line break.
 
+> 0, 1, 2, 3, 4, 5, 6, 7, 8, 9$
+
 Authors ✒️
 
 * Emmanuel Palacio Gaviria. 
