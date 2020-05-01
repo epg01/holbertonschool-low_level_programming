@@ -5,43 +5,43 @@
  */
 int main(void)
 {
-        unsigned int FirstDigit, SecondDigit, StoredCharacter, Accountant;
+	unsigned int FirstDigit, SecondDigit, StoredCharacter, Accountant;
 
-        FirstDigit = '0';    /* this variable controls the first character */
-        SecondDigit = '0';    /* this variable controls the second character */
+	FirstDigit = '0';
+	SecondDigit = '0';
 /* Indicates whether or not StoredCharacter is in a number */
-        Accountant = 0;
-        StoredCharacter = '0';
+	Accountant = 0;
+	StoredCharacter = '0';
 
-        while (StoredCharacter != ('\n' + 1))
-        {
-                putchar(StoredCharacter);
+	while (StoredCharacter != ('\n' + 1))
+	{
+		putchar(StoredCharacter);
 
-                if (SecondDigit > '9')
-                        SecondDigit = '0', FirstDigit++;
+		if (SecondDigit > '9')
+			SecondDigit = '0', FirstDigit++;
 
-                if (StoredCharacter >= '0' && StoredCharacter <= '9')
-                        Accountant++;
+		if (StoredCharacter >= '0' && StoredCharacter <= '9')
+			Accountant++;
 
-                if (Accountant == 1)
-                        StoredCharacter = SecondDigit, SecondDigit++;
+		if (Accountant == 1)
+			StoredCharacter = SecondDigit, SecondDigit++;
 
-                if (Accountant == 2)
-                        StoredCharacter = ',', Accountant = 0;
-                else if (StoredCharacter == ',')
-                        StoredCharacter = ' ';
-                else if (StoredCharacter == ' ')
-                        StoredCharacter = FirstDigit;
+		if (Accountant == 2)
+			StoredCharacter = ',', Accountant = 0;
+		else if (StoredCharacter == ',')
+			StoredCharacter = ' ';
+		else if (StoredCharacter == ' ')
+			StoredCharacter = FirstDigit;
 
 /*
  * this nested if controls the while condition, when Accountant reaches 10,
  * is where we have to print the line break
  */
 
-                if (StoredCharacter == '\n')
-                        StoredCharacter++;
-                else if (FirstDigit == ('9' + 1))
-                        StoredCharacter = '\n';
-        }
-        return (0);
+		if (StoredCharacter == '\n')
+			StoredCharacter++;
+		else if (FirstDigit == ('9' + 1))
+			StoredCharacter = '\n';
+	}
+	return (0);
 }
