@@ -10,7 +10,7 @@ int main(void)
 	FirstDigit = '0';
 	SecondDigit = '0';
 /* Indicates whether or not StoredCharacter is in a number */
-	Accountant = 0;
+	Accountant = 0;   /* it is used to know if StoredCharacter is in a digit or not*/
 	StoredCharacter = '0';
 
 	while (StoredCharacter != ('\n' + 1))
