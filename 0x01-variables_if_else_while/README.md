@@ -52,16 +52,16 @@ Authors ✒️
 
 Gratitude 🎁
 
-To my master:
+To my Master:
 * [Fredy Mena Andreda](https://github.com/xfry)
 
 To my friends:
-* [Evert escalante](https://github.com/Evertcolombia)
-* [Jordan Buitrago](https://github.com/jordanbsandoval)
-* [Santiago aldana](https://github.com/paisap)
-* [Nicolas Forero](https://github.com/NickForero11)
-* [Daniel Perez](https://github.com/d1sd41n)
-* [Juan Olivares](https://github.com/JuanOlivares1)
+* [Evert escalante](https://github.com/Evertcolombia)     My Master.
+* [Jordan Buitrago](https://github.com/jordanbsandoval)   My Master.
+* [Santiago aldana](https://github.com/paisap)            My Master.
+* [Nicolas Forero](https://github.com/NickForero11)       My Master.
+* [Daniel Perez](https://github.com/d1sd41n)              My Master.
+* [Juan Olivares](https://github.com/JuanOlivares1)       My Master.
 
 two very important people in this academy:
 * Andrea Jaramillo.
