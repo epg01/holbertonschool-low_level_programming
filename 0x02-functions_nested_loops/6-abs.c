@@ -8,7 +8,6 @@
 
 int _abs(int Number)
 {
-        Number = (Number < 0) ? (-1) * Number : Number;
-
+	Number = (Number < 0) ? (-1) * Number : Number;
 	return (Number);
 }
