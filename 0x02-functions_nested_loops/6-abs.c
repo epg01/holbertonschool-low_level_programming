@@ -8,12 +8,7 @@
 
 int _abs(int Number)
 {
-	int SolveNumber;
+        Number = (Number < 0) ? (-1) * Number : Number;
 
-	SolveNumber = (Number < 0) ? (-1) * Number : Number;
-	do
-		_putchar(Number / 10);
-	while (Number /= 10);
-
-	return (SolveNumber);
+	return (Number);
 }
