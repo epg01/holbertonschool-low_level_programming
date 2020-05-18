@@ -8,7 +8,8 @@
 
 int print_last_digit(int NumberIntg)
 {
+	NumberIntg %= 10;
 	NumberIntg = (NumberIntg < 0) ? (-1) * NumberIntg : NumberIntg;
-	_putchar(NumberIntg % 10 + '0');
-	return (NumberIntg % 10);
+	_putchar(NumberIntg + '0');
+	return (NumberIntg);
 }
