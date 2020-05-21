@@ -172,7 +172,7 @@ void print_Less_0(int Number)
 		unsigned long int PowerOf10;
 
 		Number *= -1;
-		State1 = State2 = 1;
+		State0 = State1 = State2 = 1;
 		SolveNewNumber = Number, SolveConditionOfWhile = SolveNewNumber - 1;
 		PowerOf10 = 10;
 
