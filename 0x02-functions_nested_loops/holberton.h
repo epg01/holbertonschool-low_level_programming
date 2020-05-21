@@ -21,6 +21,4 @@ enum COLUMN
 	COLUMN_FOUR, COLUMN_FIVE, NUMBER_OF_LINES = 1440
 };
 
-void print_between_The_Negative_0_9(int Number);
-
 #endif

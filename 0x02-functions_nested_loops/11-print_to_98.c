@@ -19,6 +19,7 @@ void print_between_0_9(int Number);
 void print_between_9_97(int Number);
 void print_Beyond_98(int Number);
 void print_Less_10(int Number);
+void print_between_The_Negative_0_9(int Number);
 
 /**
  * print_to_98 - function that prints all natural numbers from n to 98,
@@ -194,7 +195,7 @@ void print_Less_10(int Number)
 			continue;
 		}
 		else if (!(PowerOf10 == 1))
-                {
+		{
 			if (State0)
 				State0 = 0;
 			PowerOf10 /= 10;
@@ -207,6 +208,38 @@ void print_Less_10(int Number)
 			SolveCharacter = ' ';
 		else if (SolveCharacter == ' ')
 			Number--, State2 = 1;
+
+		if (!(Number == SolveConditionOfWhile))
+			_putchar(SolveCharacter);
+	}
+}
+
+/**
+ * print_between_The_Negative_0_9 - print the numbers from -9 to -1.
+ * @Number: Varible type int.
+ */
+
+void print_between_The_Negative_0_9(int Number)
+{
+	int SolveConditionOfWhile, SolveNewNumber;
+	unsigned char State0, State1, State2, SolveCharacter;
+
+	Number *= -1;
+	SolveNewNumber = Number, SolveConditionOfWhile = SolveNewNumber - 1;
+	State0 = State1 = State2 = 1;
+
+	while (Number < SolveConditionOfWhile)
+	{
+		if (State2)
+			SolveCharacter = '-', State2 = 0;
+		else if (State0)
+			SolveCharacter = Number % 10 + '0', State0 = 0;
+		else if (State1)
+			SolveCharacter = ',', State1 = 0;
+		else if (SolveCharacter == ',')
+			SolveCharacter = ' ';
+		else if (SolveCharacter == ' ')
+			Number--;
 
 		if (!(Number == SolveConditionOfWhile))
 			_putchar(SolveCharacter);
