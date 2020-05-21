@@ -210,7 +210,7 @@ void print_Less_0(int Number)
 		unsigned char State0, State1, State2, SolveCharacter;
 
 		Number *= -1;
-		SolveNewNumber = Number, SolveConditionOfWhile = SolveNewNumber - 1;
+		SolveNewNumber = Number, SolveConditionOfWhile = SolveNewNumber + 1;
 		State0 = State1 = State2 = 1;
 
 		while (Number < SolveConditionOfWhile)
@@ -224,7 +224,7 @@ void print_Less_0(int Number)
 			else if (SolveCharacter == ',')
 				SolveCharacter = ' ';
 			else if (SolveCharacter == ' ')
-				Number--;
+				Number++;
 
 			if (!(Number == SolveConditionOfWhile))
 				_putchar(SolveCharacter);
