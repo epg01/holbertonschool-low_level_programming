@@ -16,7 +16,7 @@ void PrintCharacteresOfSpace(int Accountant, int Number);
 
 void print_times_table(int Number)
 {
-	if (Number > 0 && Number < 15)
+	if (Number > 0 && Number <= 15)
 	{
 		int NumberOfLine = 0, NumberOfColumn = 0;
 		int SolveProduct1, SolveProduct2;
