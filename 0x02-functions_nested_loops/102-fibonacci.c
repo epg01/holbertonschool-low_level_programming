@@ -1,22 +1,29 @@
 #include "holberton.h"
 #include <stdio.h>
 
-#define ThePrimerNumbers 4
+/**
+ * PrintNumberLetter - print number 1 to 5.
+ * @Number: Data to be printed.
+ */
 
 void PrintNumberLetter(unsigned long int Number)
 {
 	putchar(Number % 10 + '0');
 	putchar(',');
 	putchar(' ');
-
-
 }
+
+/**
+ * PrintSucecionFibonacci - Print the rest of the numbers.
+ * @Number: Data to be printed.
+ */
+
 void PrintSucecionFibonacci(unsigned long int Number)
 {
 	unsigned char State0 = 1;
 	unsigned char SolveCharacter;
 	unsigned long int PowerOf10 = 10;
-        static unsigned char Counter;
+	static unsigned char Counter;
 
 	Counter++;
 
@@ -42,9 +49,11 @@ void PrintSucecionFibonacci(unsigned long int Number)
 			}
 		}
 
-		if (Counter == 1)
+		if ((Counter == 47)  && (PowerOf10 == 1))
+		{
 			break;
-		if (PowerOf10 == 1)
+		}
+		else if (PowerOf10 == 1)
 			putchar(','), putchar(' ');
 	}
 
@@ -58,7 +67,7 @@ void PrintSucecionFibonacci(unsigned long int Number)
  * Return: Successful exit.
  */
 
-int main()
+int main(void)
 {
 	unsigned char SolveCharacter = 0;
 	unsigned char Counter = 0, State = 0;
@@ -87,5 +96,5 @@ int main()
 			putchar(SolveCharacter), State = 0;
 		Counter++;
 	}
-	return 0;
+	return (0);
 }
