@@ -131,7 +131,7 @@ void PrintCharacteresOfSpace(int Accountant, int Number)
 		if (SolveCharacter == '\n')
 			SolveCharacter++;
 		else
-			SolveCharacter = '.';
+			SolveCharacter = ' ';
 	}
 
 }
