@@ -1,6 +1,24 @@
 #include "holberton.h"
-#include <stdio.h>
 
+#define THEPRINTLASTNUMBER 50
+/**
+ * Print_Space - Print characters that are not numbers
+ * @Number: Number of characters.
+ */
+
+void Print_Space(int Number)
+{
+	char Accountant = 0, SolveCharacter = ',';
+
+	while (Accountant < Number)
+	{
+		Accountant++;
+		_putchar(SolveCharacter);
+		if (Accountant == 1)
+			SolveCharacter = ' ';
+	}
+
+}
 /**
  * PrintNumberLetter - print number 1 to 5.
  * @Number: Data to be printed.
@@ -8,9 +26,18 @@
 
 void PrintNumberLetter(unsigned long int Number)
 {
-	putchar(Number % 10 + '0');
-	putchar(',');
-	putchar(' ');
+	signed char Accountant = 3;
+	unsigned char SolveCharacter;
+
+	SolveCharacter = Number % 10 + '0';
+	while (Accountant-- > 0)
+	{
+		_putchar(SolveCharacter);
+		if (Accountant == 2)
+			SolveCharacter = ',';
+		else
+			SolveCharacter = ' ';
+	}
 }
 
 /**
@@ -40,7 +67,7 @@ void PrintSucecionFibonacci(unsigned long int Number)
 				PowerOf10 /= 10;
 				SolveCharacter = Number / PowerOf10 + '0';
 				Number %= PowerOf10;
-				putchar(SolveCharacter);
+				_putchar(SolveCharacter);
 			}
 			else
 			{
@@ -49,12 +76,12 @@ void PrintSucecionFibonacci(unsigned long int Number)
 			}
 		}
 
-		if ((Counter == 47)  && (PowerOf10 == 1))
+		if ((Counter == (THEPRINTLASTNUMBER - 3))  && (PowerOf10 == 1))
 		{
 			break;
 		}
 		else if (PowerOf10 == 1)
-			putchar(','), putchar(' ');
+			Print_Space(2);
 	}
 
 }
@@ -82,18 +109,18 @@ int main(void)
 			Number++;
 			PrintNumberLetter(Number);
 		}
-		else if (Counter < 50)
+		else if (Counter < THEPRINTLASTNUMBER)
 		{
 			Number = Number + Pre_Number;
 			Pre_Number = Number - Pre_Number;
 			PrintSucecionFibonacci(Number);
 		}
-		else if (Counter == 50)
+		else if (Counter == THEPRINTLASTNUMBER)
 			SolveCharacter = '\n', State = 1;
 		else if (SolveCharacter == '\n')
 			SolveCharacter++;
 		if (State == 1)
-			putchar(SolveCharacter), State = 0;
+			_putchar(SolveCharacter), State = 0;
 		Counter++;
 	}
 	return (0);
