@@ -1,32 +1,23 @@
 #include <stdio.h>
+
 /**
- * main - Entry point
+ * main - entry - point
  *
- * Return: Always 0 (Success)
+ * Return: always 0 (success)
  */
 int main(void)
 {
-	unsigned long long num1, num2, tmp;
+	unsigned long Total_Result = 2, Number = 1;
 	int count;
 
-	num1 = 1;
-	num2 = 2;
-	count = 2;
-
-	printf("%llu", num1);
-	printf(", ");
-	printf("%llu", num2);
-
-	while (count < 98)
+	for (count = 0; count < 98; count++)
 	{
-		if (count < 98)
-			printf(", ");
-		tmp = num1;
-		num1 = num2;
-		num2 = tmp + num1;
-		count++;
-		printf("%llu", num2);
+		printf("%lu", Total_Result);
+		if (count != 97)
+			putchar(44), putchar(32);
+		Total_Result += Number;
+		Number = Total_Result - Number;
 	}
-	printf("\n");
+	putchar(10);
 	return (0);
 }
