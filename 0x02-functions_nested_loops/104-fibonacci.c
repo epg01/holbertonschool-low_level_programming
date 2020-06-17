@@ -1,24 +1,32 @@
 #include <stdio.h>
-
 /**
- * main - entry - point
+ * main - Entry point
  *
- * Return: always 0 (success)
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-	unsigned long f = 0, f1 = 1, res;
+	unsigned long long num1, num2, tmp;
 	int count;
 
-	for (count = 0; count < 98; count++)
-	{
-		res = f + f1;
-		f = f1, f1 = res;
+	num1 = 1;
+	num2 = 2;
+	count = 2;
 
-		printf("%lu", res);
-		if (count != 97)
-			putchar(44), putchar(32);
+	printf("%llu", num1);
+	printf(", ");
+	printf("%llu", num2);
+
+	while (count < 98)
+	{
+		if (count < 98)
+			printf(", ");
+		tmp = num1;
+		num1 = num2;
+		num2 = tmp + num1;
+		count++;
+		printf("%llu", num2);
 	}
-	putchar(10);
+	printf("\n");
 	return (0);
 }
