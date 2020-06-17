@@ -22,8 +22,8 @@ int main(void)
 	{
 		if (!(Counter % 2))
 			Total_Result += Counter;
-                Counter += Number;
-                Number = Counter - Number;
+		Counter += Number;
+		Number = Counter - Number;
 	}
 	PrintResult(Total_Result);
 	return (0);
