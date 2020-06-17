@@ -18,12 +18,12 @@ int main(void)
 	unsigned long int Total_Result = 0, Number = 1;
 	unsigned long int Counter = 2;
 
-	while (Counter < LIMIT_NUMBER)
+	while (Counter <= LIMIT_NUMBER)
 	{
-		Counter += Number;
-		Number = Counter - Number;
 		if (!(Counter % 2))
 			Total_Result += Counter;
+                Counter += Number;
+                Number = Counter - Number;
 	}
 	PrintResult(Total_Result);
 	return (0);
