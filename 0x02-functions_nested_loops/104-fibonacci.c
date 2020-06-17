@@ -1,25 +1,47 @@
 #include <stdio.h>
 
 /**
- * main - entry - point
+ * main - prints the first 98 Fibonacci numbers, starting with 1 and 2.
  *
- * Return: always 0 (success)
+ * Return: Always 0.
  */
 int main(void)
 {
-	unsigned long int Total_Result = 2, Number = 1;
-	int count;
+	int i = 0;
+	long primero = 0, segundo = 1, f = 1;
+	long p1, p2, s1, s2, f1, f2;
 
-	printf("%d, ", 1);
+	do {
+		printf("%li, ", f);
+		primero = segundo;
+		segundo = f;
+		f = primero + segundo;
+		i++;
+	} while (i < 89);
 
-	for (count = 1; count < 98; count++)
+	s1 = segundo / 1000000000000;
+	s2 = segundo % 1000000000000;
+	f1 = f / 1000000000000;
+	f2 = f % 1000000000000;
+
+	for (i = 89 ; i < 98 ; i++)
 	{
-		printf("%lu", Total_Result);
-		if (count != 97)
-			putchar(44), putchar(32);
-		Total_Result += Number;
-		Number = Total_Result - Number;
+		if (f2 / 1000000000000 > 0)
+		{
+			f2 = f2 % 1000000000000;
+			f1 = f1 + 1;
+		}
+		printf("%li%li", f1, f2);
+		p1 = s1;
+		p2 = s2;
+		s1 = f1;
+		s2 = f2;
+		f1 = p1 + s1;
+		f2 = p2 + s2;
+
+		if (i != 97)
+			printf(", ");
 	}
-	putchar(10);
+	printf("\n");
 	return (0);
 }
