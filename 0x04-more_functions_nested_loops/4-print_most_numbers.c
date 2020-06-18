@@ -15,7 +15,7 @@ void print_most_numbers(void)
 		if (!(SolveCharacter == '2') && (SolveCharacter != '4'))
 		putchar(SolveCharacter);
 		if ((SolveCharacter >= '0') && (SolveCharacter < '9'))
-			SolveCharacter--;
+			SolveCharacter++;
 		else if (SolveCharacter == '9')
 			SolveCharacter = '\n';
 		else if (SolveCharacter == '\n')
