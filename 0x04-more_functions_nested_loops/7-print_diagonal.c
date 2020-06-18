@@ -18,7 +18,7 @@ void print_diagonal(int Number)
 		else if ((Counter_Character_Diagonal == 1) && !(Counter_Space))
 			SolveCharacter = '\\', Counter_Space++;
 		else if (Counter_Space < Counter_Character_Diagonal)
-			SolveCharacter = '_', Counter_Space++;
+			SolveCharacter = ' ', Counter_Space++;
 		else if (((Counter_Space == Counter_Character_Diagonal) &&
 			  !(SolveCharacter == '\\')))
 			SolveCharacter = '\\';
@@ -28,7 +28,7 @@ void print_diagonal(int Number)
 			SolveCharacter = '\n';
 		}
 
-		putchar(SolveCharacter);
+		_putchar(SolveCharacter);
 		if (Number <= 0)
 			break;
 		else if ((Counter_Character_Diagonal == Number + 1) ||
