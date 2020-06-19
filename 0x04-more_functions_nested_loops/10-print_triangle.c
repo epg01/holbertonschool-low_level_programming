@@ -15,7 +15,7 @@ void print_triangle(int Size)
 		if (Size <= 0)
 			SolveCharacter = '\n';
 		else if (Counter_Space < (Size - Counter_Character_hashtag))
-			SolveCharacter = '_', Counter_Space++;
+			SolveCharacter = ' ', Counter_Space++;
 		else if ((Counter_Space >= (Size - Counter_Character_hashtag))
 			 && (Counter_Space < Size))
 			SolveCharacter = '#', Counter_Space++;
@@ -27,10 +27,11 @@ void print_triangle(int Size)
 			SolveCharacter = 0;
 		}
 
-		if (!(Counter_Character_hashtag == Size + 1) &&
-		    (SolveCharacter))
+		if ((!(Counter_Character_hashtag == Size + 1) &&
+		     (SolveCharacter)) || (Size == 0))
 			_putchar(SolveCharacter);
-		else if (Size <= 0 || (Counter_Character_hashtag == Size + 1))
+		if (Size <= 0 || (Counter_Character_hashtag == Size + 1))
 			State = 1;
+
 	}
 }
