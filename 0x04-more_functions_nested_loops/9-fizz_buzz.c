@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include <stdio.h>
 
 #define NUMBER_LIMIT        100
 #define MULTIPLES_OF_THREE  3
@@ -12,6 +12,7 @@ void Print_Int(char Number);
  *        new line. But for multiples of three print Fizz instead of the
  *        number and for the multiples of five print Buzz. For numbers which
  *        are multiples of both three and five print FizzBuzz.
+ * Return: Successfull exit.
  */
 
 int main(void)
@@ -33,7 +34,7 @@ int main(void)
 			SolveCharacter = ' ';
 		else
 			SolveCharacter = '\n';
-		_putchar(SolveCharacter);
+		putchar(SolveCharacter);
 	}
 	return (0);
 }
@@ -47,7 +48,7 @@ void Print_Word(char *Pointer_Character)
 {
 	while (*Pointer_Character)
 	{
-		_putchar(*Pointer_Character++);
+		putchar(*Pointer_Character++);
 	}
 }
 
@@ -59,12 +60,27 @@ void Print_Word(char *Pointer_Character)
 
 void Print_Int(char Number)
 {
+	unsigned char PowerOf10 = 100, SolveCharacter;
 
-	if (Number > 9)
+	while (PowerOf10 != 1)
 	{
-		_putchar(Number / 10 + '0');
-		_putchar(Number % 10 + '0');
+		if (Number > 9)
+		{
+			if (PowerOf10 == 100)
+			{
+				SolveCharacter = Number / PowerOf10 + '0';
+				PowerOf10 /= 10;
+			}
+			else if (PowerOf10 == 10)
+			{
+				SolveCharacter = Number % PowerOf10 + '0';
+				PowerOf10 /= 10;
+			}
+		}
+		else
+			SolveCharacter = Number % 10 + '0';
+		putchar(SolveCharacter);
+		if (Number < 10)
+			return ;
 	}
-	else
-		_putchar(Number % 10 + '0');
 }
