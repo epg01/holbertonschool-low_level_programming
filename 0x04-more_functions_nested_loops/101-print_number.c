@@ -8,8 +8,8 @@
 
 void print_number(int Number)
 {
-	signed int PowerOf10 = POWER_OF_10;
-	signed int State0 = 0, SolveCharacter;
+	int PowerOf10 = POWER_OF_10;
+	int State0 = 0, SolveCharacter;
 
 	while (!(PowerOf10 == 1))
 	{
