@@ -1,38 +1,42 @@
 #include "holberton.h"
-
-#define POWER_OF_10   10
 /**
- * print_number - Function that prints an integer.
- * @Number: Variable integer type that stores the data to be printed.
+ * print_number - prints an integer char by char
+ * @n: The integer to print
+ *
+ * Return: void
  */
 
-void print_number(int Number)
+void print_number(int n)
 {
-	signed int PowerOf10 = POWER_OF_10;
-	int State0 = 0, SolveCharacter, State = 1;
+	int i, size;
+	unsigned int num, num_temp, dig, div;
 
-	SolveCharacter = Number;
+	num = n;
+	size = 0;
+	div = 1;
 
-	while (State)
+	if (n < 0)
 	{
-		if ((Number / PowerOf10 > 9) && !(State0))
-			PowerOf10 *= POWER_OF_10;
-		else
-		{
-			if (Number < 0)
-				SolveCharacter = '-', Number *= (-1);
-			else
-			{
-				if (Number > 9)
-					SolveCharacter = Number / PowerOf10;
-				SolveCharacter %= POWER_OF_10;
-				SolveCharacter += '0';
-				State0 = 1;
-				if (!(PowerOf10 != 1) || Number <= 9)
-					State = 0;
-				PowerOf10 /= POWER_OF_10;
-			}
-			_putchar(SolveCharacter);
-		}
+		num = num * -1;
+		_putchar(45);
 	}
+
+	num_temp = num;
+	while (num_temp != 0)
+	{
+		size++;
+		num_temp /= 10;
+
+	}
+	for  (i = 1; i < size; i++)
+	{
+		div = div * 10;
+	}
+	for (i = size - 1; i >= 1; i--)
+	{
+		dig = num / div;
+		_putchar((dig % 10) + '0');
+		div /= 10;
+	}
+	_putchar((num % 10) + '0');
 }
