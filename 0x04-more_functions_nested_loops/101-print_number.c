@@ -13,7 +13,7 @@ void print_number(int Number)
 
 	while (!(PowerOf10 == 1))
 	{
-		if ((Number / PowerOf10) && !(State0))
+		if ((Number / PowerOf10 > 9) && !(State0))
 			PowerOf10 *= POWER_OF_10;
 		else
 		{
@@ -21,10 +21,10 @@ void print_number(int Number)
 				SolveCharacter = '-', Number *= (-1);
 			else
 			{
-				PowerOf10 /= POWER_OF_10;
 				SolveCharacter = Number / PowerOf10;
 				SolveCharacter %= POWER_OF_10;
 				SolveCharacter += '0';
+				PowerOf10 /= POWER_OF_10;
 				State0 = 1;
 			}
 			_putchar(SolveCharacter);
