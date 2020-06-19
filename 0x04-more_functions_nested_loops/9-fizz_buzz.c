@@ -21,13 +21,13 @@ int main(void)
 
 	for (Counter = 1; Counter <= NUMBER_LIMIT; Counter++)
 	{
-		if (!(Counter % MULTIPLES_OF_THREE))
+		if (!(Counter % MULTIPLES_OF_FIVE) &&
+		    !(Counter % MULTIPLES_OF_THREE))
+			Print_Word("FizzBuzz");
+		else if (!(Counter % MULTIPLES_OF_THREE))
 			Print_Word("Fizz");
 		else if (!(Counter % MULTIPLES_OF_FIVE))
 			Print_Word("Buzz");
-		else if (!(Counter % MULTIPLES_OF_FIVE) &&
-			 !(Counter % MULTIPLES_OF_THREE))
-			Print_Word("FizzBuzz");
 		else
 			Print_Int(Counter);
 		if (Counter < NUMBER_LIMIT)
@@ -60,27 +60,28 @@ void Print_Word(char *Pointer_Character)
 
 void Print_Int(char Number)
 {
-	unsigned char PowerOf10 = 100, SolveCharacter;
+	unsigned char PowerOf10 = POWER_OF_10, SolveCharacter;
+	unsigned char State  = 1;
 
 	while (PowerOf10 != 1)
 	{
-		if (Number > 9)
+		if (Number > POWER_OF_10 - 1)
 		{
-			if (PowerOf10 == 100)
+			if (State)
 			{
-				SolveCharacter = Number / PowerOf10 + '0';
-				PowerOf10 /= 10;
+				SolveCharacter = (Number / PowerOf10) + '0';
+				State = 0;
 			}
-			else if (PowerOf10 == 10)
+			else if (PowerOf10 == POWER_OF_10)
 			{
 				SolveCharacter = Number % PowerOf10 + '0';
-				PowerOf10 /= 10;
+				PowerOf10 /= POWER_OF_10;
 			}
 		}
 		else
-			SolveCharacter = Number % 10 + '0';
+			SolveCharacter = Number % POWER_OF_10 + '0';
 		putchar(SolveCharacter);
-		if (Number < 10)
-			return ;
+		if (Number < POWER_OF_10)
+			return;
 	}
 }
