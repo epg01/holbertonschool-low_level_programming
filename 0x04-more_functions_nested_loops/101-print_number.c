@@ -1,8 +1,6 @@
 #include "holberton.h"
 
-
 #define POWER_OF_10    10
-
 
 /**
  * print_number - prints an integer char by char
@@ -11,19 +9,19 @@
 
 void print_number(int Number)
 {
-	unsigned long int  SolveCharacter, PowerOf10;
-	unsigned char State;
+	int  SolveCharacter;
+	signed long int PowerOf10;
+	long long c;
+	unsigned char State, State0;
 
-	State = PowerOf10 =  1, SolveCharacter = 0;
+	State = PowerOf10 =  State0 = 1, SolveCharacter = 0;
 
 	while (PowerOf10)
 	{
-		if (Number < 0)
-		{
-			SolveCharacter = '-';
-			Number *= (-1);
-		}
-		else if (((Number / PowerOf10) >= POWER_OF_10) && (State))
+		if ((Number < 0) && State0)
+			SolveCharacter = '-', State0 = 0;
+		else if (((Number / PowerOf10) >= POWER_OF_10 ||
+			  (Number / PowerOf10 <= -10)) && (State))
 		{
 			PowerOf10 *= POWER_OF_10;
 			continue;
@@ -35,7 +33,14 @@ void print_number(int Number)
 		}
 		else if (POWER_OF_10)
 		{
-			SolveCharacter = (Number / PowerOf10) % POWER_OF_10 + '0';
+			if (Number >= 0)
+				SolveCharacter = (Number / PowerOf10) % POWER_OF_10 + '0';
+			else
+			{
+				SolveCharacter = Number / PowerOf10 % 10;
+				SolveCharacter *= (-1);
+				SolveCharacter += '0';
+			}
 			PowerOf10 /= POWER_OF_10;
 		}
 		if (SolveCharacter)
