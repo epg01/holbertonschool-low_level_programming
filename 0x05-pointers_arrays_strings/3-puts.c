@@ -27,6 +27,12 @@ void _puts(char *String_Character)
 	}
 }
 
+/**
+ * String_Character_Length - Function that returns the length of a string.
+ * @String_Character: that stores the length to find.
+ * Return: Return of the length.
+ */
+
 signed int String_Character_Length(char *String_Character)
 {
 	int Counter_Character = 0;
