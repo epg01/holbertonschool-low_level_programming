@@ -8,7 +8,7 @@
 
 int _strlen(char *String_Character)
 {
-	unsigned long int Counter_String_Character = 0;
+	int Counter_String_Character = 0;
 
 	while (*String_Character++)
 		Counter_String_Character++;
