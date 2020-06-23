@@ -21,7 +21,7 @@ void rev_string(char *String_Character)
 	Pointer_The_End_Of_String = String_Character;
 	Pointer_The_End_Of_String += (Counter_Character - 1);
 
-	for ( ; Pointer_The_End_Of_String != String_Character;
+	for ( ; Pointer_The_End_Of_String >= String_Character;
 	     Pointer_The_End_Of_String--, String_Character++)
 	{
 		Solve_Character_One_Time = *String_Character;
