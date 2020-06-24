@@ -1,6 +1,10 @@
 #include "holberton.h"
 
-signed int String_Character_Length(char *String_Character);
+/*
+ * Function declarations.
+ */
+
+unsigned int String_Character_Length(char *String_Character);
 
 /**
  * puts2 - Function that prints every other character of a string,
@@ -10,23 +14,38 @@ signed int String_Character_Length(char *String_Character);
 
 void puts2(char *String_Character)
 {
-	unsigned char SolveCharacter = 0;
-	unsigned int Counter_Character = 0, Counter = 0;
-
-	Counter_Character = String_Character_Length(String_Character);
-
-	while (SolveCharacter != '\n' + 1)
+	if (*String_Character)
 	{
-		if (Counter <=  Counter_Character)
-			SolveCharacter = String_Character[Counter];
-		else if ((Counter >=  Counter_Character) && (SolveCharacter != '\n'))
-			SolveCharacter = '\n';
-		else if (SolveCharacter == '\n')
-			SolveCharacter++;
+		unsigned char State0, State1;
+		unsigned int Counter_String_Character = 0;
+		unsigned int Counter = 0;
 
-		if ((Counter <= Counter_Character) || (SolveCharacter == '\n'))
-			_putchar(SolveCharacter);
-		Counter += 2;
+		State0 = State1 = 1;
+
+		while (State0)
+		{
+			if (State1 == 1)
+			{
+				Counter_String_Character = String_Character_Length(String_Character);
+				State1 = 0;
+			}
+			else if (Counter <= Counter_String_Character)
+			{
+				_putchar(*String_Character);
+				String_Character += 2;
+				Counter += 2;
+			}
+			else
+				_putchar('\n'), State1 = 3;
+
+			if (State1 == 3)
+				State0 = 0;
+		}
+	}
+	else
+	{
+		_putchar('\n');
+		return;
 	}
 }
 
@@ -36,7 +55,7 @@ void puts2(char *String_Character)
  * Return: Return of the length.
  */
 
-signed int String_Character_Length(char *String_Character)
+unsigned int String_Character_Length(char *String_Character)
 {
 	int Counter_Character = 0;
 
