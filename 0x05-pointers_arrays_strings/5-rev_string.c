@@ -57,5 +57,5 @@ void rev_string(char *String_Character)
 		}
 	}
 	else
-		return ;
+		return;
 }
