@@ -29,7 +29,7 @@ void puts2(char *String_Character)
 				Counter_String_Character = String_Character_Length(String_Character);
 				State1 = 0;
 			}
-			else if (Counter <= Counter_String_Character)
+			else if (Counter < Counter_String_Character)
 			{
 				_putchar(*String_Character);
 				String_Character += 2;
