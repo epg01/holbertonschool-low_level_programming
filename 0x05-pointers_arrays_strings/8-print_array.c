@@ -3,14 +3,14 @@
 
 /*
  * declaration
+ *void Print_Number(int *Puntero_Number);
  */
-
-void Print_Number(int *Puntero_Number);
 
 /**
  * print_array - Function that prints n elements of an array of integers,
  *               followed by a new lines
- * @Pointer_Number: pointer pointing to numbers in an array.
+ * @Punter_Number: pointer pointing to numbers in an array.
+ * @Size_Matriz: Matrix size.
  */
 
 void print_array(int *Puntero_Number, int Size_Matriz)
