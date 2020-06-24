@@ -34,7 +34,8 @@ void puts_half(char *String_Character)
 				_putchar(String_Character[Counter]);
 				Counter++;
 			}
-			else if (Counter < (Counter_String_Character - 1))
+			else if (Counter < (Counter_String_Character - 1) &&
+				 (Counter_String_Character % 2))
 			{
 				if (!State1)
 					Counter = Counter_String_Character / 2, State1 = 2;
