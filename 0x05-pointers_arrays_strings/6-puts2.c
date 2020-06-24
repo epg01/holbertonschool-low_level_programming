@@ -5,7 +5,7 @@ signed int String_Character_Length(char *String_Character);
 /**
  * puts2 - Function that prints every other character of a string,
  *         starting with the first character, followed by a new line
- * @String_Number: variable that stores a string of numbers.
+ * @String_Character: variable that stores a string of numbers.
  */
 
 void puts2(char *String_Character)
