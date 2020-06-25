@@ -8,7 +8,7 @@
 
 void reverse_array(int *Pointer_Start, int Size_Array)
 {
-	if (n)
+	if (Size_Array)
 	{
 		int temp, *Pointer_Last;
 
