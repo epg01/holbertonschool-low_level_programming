@@ -1,73 +1,24 @@
-#include "holberton.h"
-
-/*
- * Function declarations.
- */
-
-unsigned int String_Character_Length(char *String_Character);
-
-/**
- * puts_half - Function that prints half of a string, followed by a new line.
- * @String_Character: variable that stores a string of numbers.
- */
-
-void puts_half(char *String_Character)
+void puts_half(char *str)
 {
-	if (*String_Character)
+	int digits;
+
+	digits = 0;
+	while (*(str + digits) != '\0')
 	{
-		unsigned char State0, State1;
-		unsigned int Counter_String_Character = 0;
-		unsigned int Counter = 0;
-
-		State0 = State1 = 1;
-
-		while (State0)
-		{
-			if (State1 == 1)
-			{
-				Counter_String_Character = String_Character_Length(String_Character) + 1;
-				State1 = 0;
-			}
-			else if ((Counter < (Counter_String_Character / 2)) &&
-				 !(Counter_String_Character % 2))
-			{
-				_putchar(String_Character[Counter]);
-				Counter++;
-			}
-			else if (Counter < (Counter_String_Character - 1) &&
-				 (Counter_String_Character % 2))
-			{
-				if (!State1)
-					Counter = Counter_String_Character / 2, State1 = 2;
-				_putchar(String_Character[Counter]);
-				Counter++;
-			}
-			else
-				_putchar('\n'), State1 = 3;
-
-			if (State1 == 3)
-				State0 = 0;
-		}
+		digits++;
 	}
-	else
+	if (digits % 2 == 0)
 	{
-		_putchar('\n');
-		return;
+		digits /= 2;
+	} else
+	{
+		digits++;
+		digits /= 2;
 	}
-}
-
-/**
- * String_Character_Length - Function that returns the length of a string.
- * @String_Character: that stores the length to find.
- * Return: Return of the length.
- */
-
-unsigned int String_Character_Length(char *String_Character)
-{
-	int Counter_Character = 0;
-
-	while (*String_Character++)
-		Counter_Character++;
-
-	return (Counter_Character);
+	while (*(str + digits) != '\0')
+	{
+		_putchar(*(str + digits));
+		digits++;
+	}
+	_putchar('\n');
 }
