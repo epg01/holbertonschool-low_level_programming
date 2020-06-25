@@ -1,24 +1,20 @@
 void puts_half(char *str)
 {
-	int digits;
+	int count = 0;
+	int length_of_the_string, a, half;
 
-	digits = 0;
-	while (*(str + digits) != '\0')
-	{
-		digits++;
-	}
-	if (digits % 2 == 0)
-	{
-		digits /= 2;
-	} else
-	{
-		digits++;
-		digits /= 2;
-	}
-	while (*(str + digits) != '\0')
-	{
-		_putchar(*(str + digits));
-		digits++;
-	}
+	while (str[count])
+		count++;
+	length_of_the_string = count;
+
+	if (length_of_the_string % 2 != 0)
+		a = (length_of_the_string - 1) / 2;
+	else
+		a = length_of_the_string / 2;
+
+	half = length_of_the_string - a;
+	for (; half < length_of_the_string; half++)
+		_putchar(str[half]);
+
 	_putchar('\n');
 }
