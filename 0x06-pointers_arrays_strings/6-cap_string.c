@@ -6,25 +6,39 @@
  * Return: We return the start of the string.
  */
 
-char *cap_string(char *String_Character)
+char *cap_string(char *s)
 {
-	char *Pointer_Start = String_Character;
+	int i;
 
-	while (*String_Character)
-		if (*String_Character == ' '  || *String_Character == ','  ||
-		    *String_Character == '.'  || *String_Character == '!'  ||
-		    *String_Character == '\t' || *String_Character == '\n' ||
-		    *String_Character == '"' || *String_Character == '('  ||
-		    *String_Character == ')'  || *String_Character == '{'  ||
-		    *String_Character == '}'  || *String_Character == '?'  ||
-		    *String_Character == ';')
+	if (s[0] >= 'a' && s[0] <= 'z')
+	{
+		s[0] = s[0] - 32;
+	}
+	for (i = 1; s[i] != '\0'; i++)
+	{
+		if (
+			(
+				s[i] == ' '
+				|| s[i] == '\t'
+				|| s[i] == '\n'
+				|| s[i] == ','
+				|| s[i] == ';'
+				|| s[i] == '.'
+				|| s[i] == '!'
+				|| s[i] == '?'
+				|| s[i] == '"'
+				|| s[i] == '('
+				|| s[i] == ')'
+				|| s[i] == '{'
+				|| s[i] == '}'
+				)&& (s[i + 1] > 'a'
+				     &&s[i + 1] < 'z')
+			)
 		{
-			if (*(String_Character + 1) >= 'a' && *(String_Character + 1) <= 'z')
-				*(String_Character + 1) += ('A' - 'a'), String_Character++;
-			else
-				String_Character++;
+			s[i + 1] -= 32;
 		}
-		else
-			String_Character++;
-	return (Pointer_Start);
+	}
+
+	return (s);
+
 }
