@@ -2,7 +2,7 @@
 
 /**
  * cap_string - Function that capitalizes all words of a string.
- * @String_Character: Stores the character string that is modified.
+ * @s: Stores the character string that is modified.
  * Return: We return the start of the string.
  */
 
@@ -31,8 +31,8 @@ char *cap_string(char *s)
 				|| s[i] == ')'
 				|| s[i] == '{'
 				|| s[i] == '}'
-				)&& (s[i + 1] > 'a'
-				     &&s[i + 1] < 'z')
+				) && (s[i + 1] > 'a'
+				     && s[i + 1] < 'z')
 			)
 		{
 			s[i + 1] -= 32;
