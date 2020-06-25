@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * _strcat - Function that concatenates two strings.
+ * _strncat - Function that concatenates two strings.
  * @dest: array to be concatenated with the src variable.
  * @src: Variable that contains the data to be concatenated with dest.
  * @n: Byte number of string src.
@@ -13,7 +13,7 @@ char *_strncat(char *dest, char *src, int n)
 	unsigned char State = 1;
 	char *Pointer_To_the_Start = dest;
 
-	while (n)
+	while (n && *src)
 	{
 		if (*dest && State)
 			dest++;
