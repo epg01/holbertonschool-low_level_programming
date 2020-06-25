@@ -24,7 +24,7 @@ char *_strncat(char *dest, char *src, int n)
 			else
 				*dest++ = *src++, n--;
 		}
-	}
 	*dest = '\0';
+	}
 	return (Pointer_To_the_Start);
 }
