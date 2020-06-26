@@ -10,7 +10,7 @@
 void print_number(int Number)
 {
 	int  SolveCharacter;
-	signed long int PowerOf10;
+	signed int PowerOf10;
 	unsigned char State, State0;
 
 	State = PowerOf10 =  State0 = 1, SolveCharacter = 0;
