@@ -1,5 +1,10 @@
 #include <stdio.h>
 
+/**
+ * main - magic.
+ * return - return a[2].
+ */
+
 int main(void)
 {
 	int n;
