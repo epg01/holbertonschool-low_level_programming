@@ -13,5 +13,5 @@ char *_strchr(char *ArrayCharacter, char Character)
 {
 	while (*ArrayCharacter && *ArrayCharacter++ != Character)
 		;
-	return (*--ArrayCharacter == Character) ? ArrayCharacter : NULL;
+	return ((*--ArrayCharacter == Character) ? ArrayCharacter : NULL);
 }
