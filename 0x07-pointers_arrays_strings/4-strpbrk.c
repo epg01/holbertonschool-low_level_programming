@@ -2,7 +2,7 @@
 
 #define NULL 0
 
-w/**
+/**
  * _strpbrk - Function that searches a string for any of a set of bytes.
  * @s: Character array.
  * @accept: Character array.
