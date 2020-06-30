@@ -15,7 +15,7 @@ char *_strstr(char *haystack, char *needle)
 	signed int Counter = 0;
 	char *temp = needle;
 
-	if (*haystack && *needle)
+	if (*needle)
 	{
 		while (*haystack)
 			if (!(*needle))
