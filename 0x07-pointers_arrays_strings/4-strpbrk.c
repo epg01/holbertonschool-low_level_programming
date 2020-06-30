@@ -3,7 +3,7 @@
 #define NULL 0
 
 /**
- * _strpbtk - Function that searches a string for any of a set of bytes.
+ * _strpbrk - Function that searches a string for any of a set of bytes.
  * @s: Character array.
  * @accept: Character array.
  * Return: Returns a pointer to the byte in s that matches one of the
