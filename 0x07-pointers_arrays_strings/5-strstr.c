@@ -15,17 +15,12 @@ char *_strstr(char *haystack, char *needle)
 	signed int Counter = 0;
 	char *temp = needle;
 
-	if (*needle)
-	{
-		while (*haystack)
-			if (!(*needle))
-				break;
-			else if (*needle != *haystack)
-				needle = temp, haystack++;
-			else if (*needle++ == *haystack++)
-				Counter--;
-		return (!(*needle) ? haystack + Counter : NULL);
-	}
-	else
-		return (NULL);
+	while (*haystack)
+		if (!(*needle))
+			break;
+		else if (*needle != *haystack)
+			needle = temp, haystack++;
+		else if (*needle++ == *haystack++)
+			Counter--;
+	return (!(*needle) ? haystack + Counter : NULL);
 }
