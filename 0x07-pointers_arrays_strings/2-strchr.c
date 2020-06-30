@@ -12,7 +12,7 @@
 
 char *_strchr(char *ArrayCharacter, char Character)
 {
-	if (Character)
+	if (!Character)
 		return (NULL);
 	while (*ArrayCharacter)
 		if (*ArrayCharacter != Character)
