@@ -1,17 +1,43 @@
 #include "holberton.h"
-#include <stdlib.h>
+
+int _strlen(char *s);
 
 /**
- * _strchr - Function that locates a character in a string.
- * @Character: Pattern to be searched in the array.
- * @ArrayCharacter: Stores the character array.
- * Return: Returns a pointer to the first occurrence of the character c in the
- *         string s, or NULL if the character is not found
+ * *_strchr - locates a character in a string
+ * @s: pointer to a string
+ * @c: character with the n of index
+ * Return:  pointer
+ */
+char *_strchr(char *s, char c)
+{
+	int i = 0;
+	int length = _strlen(s);
+	char *r = '\0';
+
+	while (i < length)
+	{
+		if (s[i] ==  c)
+		{
+			r = &s[i];
+			break;
+		}
+		i++;
+	}
+	return (r);
+}
+
+/**
+ * _strlen - show the lenght of a string
+ * @s: pointe to  pass the array
+ *
+ * Return: none
  */
 
-char *_strchr(char *ArrayCharacter, char Character)
+int _strlen(char *s)
 {
-	while (*ArrayCharacter && *ArrayCharacter++ != Character)
-		;
-	return ((*--ArrayCharacter == Character) ? ArrayCharacter : NULL);
+	int a = 0;
+
+	while (s[a])
+		++a;
+	return (a);
 }
