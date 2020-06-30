@@ -15,13 +15,11 @@ char *_strpbrk(char *s, char *accept)
 	char *temp = accept;
 
 	while (*s)
-	{
 		if (*accept && (*accept != *s))
 			accept++;
 		else if (!(*accept))
 			accept = temp, s++;
 		else if (*accept == *s)
 			break;
-	}
 	return ((*s) ? s : NULL);
 }
