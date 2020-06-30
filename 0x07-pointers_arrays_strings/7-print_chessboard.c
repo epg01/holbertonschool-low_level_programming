@@ -4,7 +4,7 @@
 
 /**
  * print_chessboard - Function that prints the chessboard.
- * @
+ * @print_chessboard: pointer to an array [8] with n lines or dimensions.
  */
 
 void print_chessboard(char (*Pointer_Between_1_N_Array)[8])
