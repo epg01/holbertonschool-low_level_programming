@@ -19,7 +19,7 @@ char *_strstr(char *haystack, char *needle)
 		if (!(*needle))
 			break;
 		else if (*needle != *haystack)
-			needle = temp, haystack++;
+			needle = temp, haystack++, Counter = 0;
 		else if (*needle == *haystack)
 			Counter--, needle++, haystack++;
 	return (!(*needle) ? haystack + Counter : NULL);
