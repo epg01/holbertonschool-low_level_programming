@@ -4,20 +4,18 @@
 
 /**
  * *_strchr - Function that locates a character in a string.
- * @ArrayCharacter: Pointer to an array of characters.
- * @Character: Pattern data to look for in the variable Array Character.
+ * @s: Pointer to an array of characters.
+ * @c: Pattern data to look for in the variable Array Character.
  * Return: Returns a pointer to the first occurrence of the character
  *         c in the string s, or NULL if the character is not found
  */
 
-char *_strchr(char *ArrayCharacter, char Character)
+char *_strchr(char *s, char c)
 {
-	if (!Character)
-		return (NULL);
-	while (*ArrayCharacter)
-		if (*ArrayCharacter != Character)
-			ArrayCharacter++;
-		else if (*ArrayCharacter == Character)
+	while (*s)
+		if (*s != c)
+			s++;
+		else if (*s == c)
 			break;
-	return ((*ArrayCharacter) ? ArrayCharacter : NULL);
+	return ((*s) ? s : NULL);
 }
