@@ -11,7 +11,7 @@
 int _pow_recursion(int Base, int Power)
 {
 	if (Power > 1)
-		Base = Base * _pow_recursion(--Power);
+		Base = Base * _pow_recursion(Base, --Power);
 	else if (Power < 0)
 		return (-1);
 	return (Base);
