@@ -1,33 +1,36 @@
 #include "holberton.h"
+
 /**
- * mul - find sqr
- * @n: int
- * @i: int
- * Return: int
+ * _sqrt_recursion - Function that returns the natural square root of a number.
+ * @Number: Number to be done the process of removing the square root.
+ * Return: If n does not have a natural square root, the function
+ *         should return -1.
  */
-int mul(int i, int n)
+
+int _sqrt_recursion(int Number)
 {
-	if (i * i == n)
-	{
-		return (i);
-	}
-	else if (i * i > n)
-	{
-		return (-1);
-	}
-	else
-	{
-		return (mul(i + 1, n));
-	}
+	int Found_Sqrt(int, int);
+
+	return (Found_Sqrt(1, Number));
 }
 
 /**
- * _sqrt_recursion - find sqr
- * @n: int
- * Return: int
+ * Found_Sqrt - Will do the process of finding the number that multiplied
+ *              twice by itself of what the carialbe Number contains
+ *              but returns -1
+ * @FoundNumber: Number that is multiplied twice.
+ * @Number: Number to find the square root.
+ * Return: If n does not have a natural square root, the function
+ *         should return -1.
  */
-int _sqrt_recursion(int n)
-{
-	return (mul(0, n));
 
+int Found_Sqrt(int FoundNumber, int Number)
+{
+	if (FoundNumber <= Number)
+		if ((FoundNumber * FoundNumber) == Number)
+			return (FoundNumber);
+		else
+			return(Found_Sqrt(FoundNumber + 1, Number));
+	else
+		return (-1);
 }
