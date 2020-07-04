@@ -1,8 +1,11 @@
 #include <stdio.h>
 #include "holberton.h"
+
 /**
- *
- *
+ * main - Program that prints its name, followed by a new line.
+ * @argc: Counter.
+ * @argv: Doble pointer.
+ * Return: Return -1 c argc does not exist, return 0 (successful exit).
  */
 
 int main(int argc, char *argv[])
@@ -10,6 +13,7 @@ int main(int argc, char *argv[])
 	if (argc)
 	{
 		char SolveCharacter = 0, State = 1;
+
 		while (State)
 		{
 			if (**argv)
