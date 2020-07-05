@@ -63,7 +63,7 @@ int _isdigit(char *Pointer)
 {
 	while (*Pointer)
 	{
-		if (Pointer_Be_A_Digit(*Pointer))
+	  if (Pointer_Be_A_Digit(*Pointer) || *Pointer == '+' || *Pointer == '-')
 			return (1);
 		else
 			return (0);
