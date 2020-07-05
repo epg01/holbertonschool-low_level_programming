@@ -13,42 +13,37 @@
 
 int main(int argc, char *argv[])
 {
-	if (argc)
+	if (argc < 3)
 	{
-		if (*argv++)
-		{
-			int _atoi(char []);
-			void print_number(int);
-			int _isdigit(char *);
-			int Counter = 0;
+		printf("0\n");
+		return (0);
+	}
+	else
+	{
+		int _atoi(char []);
+		void print_number(int);
+		int _isdigit(char *);
+		int Counter = 0;
 
-			while (*argv && (_isdigit(*argv)))
-				Counter += _atoi(*argv++);
-			if (!(*argv))
-			{
-				print_number(Counter);
-				putchar('\n');
-				return (0);
-			}
-			else
-			{
-				char *Pointer_To_Mensaje = MENSAJE;
+		argv++;
 
-				while (*Pointer_To_Mensaje)
-					_putchar(*Pointer_To_Mensaje++);
-				return (1);
-			}
-		}
-		else
+		while (*argv && (_isdigit(*argv)))
+			Counter += _atoi(*argv++);
+		if (!(*argv))
 		{
-			putchar('0');
+			print_number(Counter);
 			putchar('\n');
 			return (0);
 		}
-	}
-	else
-		return (0);
+		else
+		{
+			char *Pointer_To_Mensaje = MENSAJE;
 
+			while (*Pointer_To_Mensaje)
+				_putchar(*Pointer_To_Mensaje++);
+			return (1);
+		}
+	}
 }
 
 #define Pointer_Be_A_Digit(x) (((x) >= ('0')) && ((x)) <= ('9'))
@@ -63,7 +58,7 @@ int _isdigit(char *Pointer)
 {
 	while (*Pointer)
 	{
-	  if (Pointer_Be_A_Digit(*Pointer))
+		if (Pointer_Be_A_Digit(*Pointer))
 			return (1);
 		else
 			return (0);
