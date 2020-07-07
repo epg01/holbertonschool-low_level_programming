@@ -12,27 +12,22 @@
 
 char *_strdup(char *Str)
 {
-	unsigned int Array_Length, _Strlen(char *);
-
-	Array_Length = _Strlen(Str);
-
-	if (Array_Length)
+	if (*Str)
 	{
-		char *Pointer_To_A_Memory_Group;
+		unsigned int _Strlen(char *Pointer_To_Str);
 
-		Array_Length++;
-		Pointer_To_A_Memory_Group = (char *)malloc((Array_Length) * sizeof(char));
+		char *Pointer = (char *)malloc((_Strlen(Str) + 1) * sizeof(char));
 
-		if (!Pointer_To_A_Memory_Group)
+		if (!Pointer)
 		{
-			free(Pointer_To_A_Memory_Group);
+			free(Pointer);
 			return (NULL);
 		}
 		else
 		{
-			char *Temp = Pointer_To_A_Memory_Group;
+			char *Temp = Pointer;
 
-			while ((*Pointer_To_A_Memory_Group++ = *Str++))
+			while ((*Pointer++ = *Str++))
 				;
 			return (Temp);
 		}
