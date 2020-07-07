@@ -12,22 +12,27 @@
 
 char *_strdup(char *Str)
 {
-	unsigned int _Strlen(char *Pointer_To_Str);
-
-	char *Pointer = (char *)malloc((_Strlen(Str) + 1) * sizeof(char));
-
-	if (!Pointer)
-	{
-		free(Pointer);
+	if (!Str)
 		return (NULL);
-	}
 	else
 	{
-		char *Temp = Pointer;
+		unsigned int _Strlen(char *Pointer_To_Str);
 
-		while ((*Pointer++ = *Str++))
+		char *Pointer = (char *)malloc((_Strlen(Str) + 1) * sizeof(char));
+
+		if (!Pointer)
+		{
+			free(Pointer);
+			return (NULL);
+		}
+		else
+		{
+			char *Temp = Pointer;
+
+			while ((*Pointer++ = *Str++))
 			;
-		return (Temp);
+			return (Temp);
+		}
 	}
 }
 
