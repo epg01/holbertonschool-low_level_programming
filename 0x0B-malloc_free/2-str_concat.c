@@ -10,34 +10,66 @@
 
 char *str_concat(char *s1, char *s2)
 {
-	unsigned int Counter, _Strlen(char *);
-	char *Pointer_Concat;
+	unsigned int _Strlen(char *);
+	void _strcat(char *, char *, char *);
 
-	Counter = _Strlen(s1);
-	Counter += _Strlen(s2);
-
-	if (Counter)
+	if (s1 && s2)
 	{
+		char *Pointer = (char *)malloc((_Strlen(s1) + _Strlen(s2) + 1) * sizeof(char));
 
-		Counter++;
-		Pointer_Concat = (char *)malloc(Counter * sizeof(char));
-
-		if (Pointer_Concat)
+		if (Pointer)
 		{
-			char *Temp = Pointer_Concat;
-
-			while (*s2)
-			{
-				if (*s1)
-					*Pointer_Concat++ = *s1++;
-				else
-					*Pointer_Concat++ = *s2++;
-			}
-			return (Temp);
+			_strcat(s1, s2, Pointer);
+			return (Pointer);
 		}
 		else
 		{
-			free(Pointer_Concat);
+			free (Pointer);
+			return (NULL);
+		}
+	}
+	else if (s1 && !s2)
+	{
+		char *Pointer = (char *)malloc((_Strlen(s1) + 1) * sizeof(char));
+
+                if (Pointer)
+		{
+			_strcat(s1, s2 , Pointer);
+			return (Pointer);
+		}
+		else
+		{
+			free(Pointer);
+			return (NULL);
+		}
+	}
+	else if (!s1 && s2)
+	{
+                char *Pointer = (char *)malloc((_Strlen(s2) + 1) * sizeof(char));
+
+		if (Pointer)
+		{
+			_strcat(s1, s2, Pointer);
+			return (Pointer);
+		}
+		else
+		{
+			free(Pointer);
+			return (NULL);
+		}
+	}
+	else if (!s1 && !s2)
+	{
+		char *Pointer = (char *)malloc(sizeof(char));
+
+		if (Pointer)
+		{
+			*Pointer = '\0';
+			return (Pointer);
+		}
+		else
+		{
+			free(Pointer);
 			return (NULL);
 		}
 	}
@@ -45,6 +77,26 @@ char *str_concat(char *s1, char *s2)
 		return (NULL);
 }
 
+/**
+ * _strcat - Function that concatenates two strings.
+ * @Strgin1:
+ * @String2: Variable that contains the data to be concatenated with dest.
+ * Return: Returns the concatenated string.
+ */
+
+void _strcat(char *String1, char *String2, char *Pointer)
+{
+	char State = 1;
+
+	while (State)
+		if (String1 && *String1)
+			*Pointer++ = *String1++;
+		else if (String2 && *String2)
+			*Pointer++ = *String2++;
+		else
+			State = 0;
+	*Pointer = '\0';
+}
 
 /**
  * _Strlen - Returns the length of the visible character string.
