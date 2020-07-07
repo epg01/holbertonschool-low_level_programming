@@ -12,9 +12,7 @@
 
 char *_strdup(char *Str)
 {
-	if (!Str)
-		return (NULL);
-	else
+	if (Str)
 	{
 		unsigned int _Strlen(char *Pointer_To_Str);
 
@@ -34,6 +32,8 @@ char *_strdup(char *Str)
 			return (Temp);
 		}
 	}
+	else
+		return (NULL);
 }
 
 /**
