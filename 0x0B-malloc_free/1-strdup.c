@@ -12,28 +12,23 @@
 
 char *_strdup(char *Str)
 {
-	if (*Str)
+	unsigned int _Strlen(char *Pointer_To_Str);
+
+	char *Pointer = (char *)malloc((_Strlen(Str) + 1) * sizeof(char));
+
+	if (!Pointer)
 	{
-		unsigned int _Strlen(char *Pointer_To_Str);
-
-		char *Pointer = (char *)malloc((_Strlen(Str) + 1) * sizeof(char));
-
-		if (!Pointer)
-		{
-			free(Pointer);
-			return (NULL);
-		}
-		else
-		{
-			char *Temp = Pointer;
-
-			while ((*Pointer++ = *Str++))
-				;
-			return (Temp);
-		}
+		free(Pointer);
+		return (NULL);
 	}
 	else
-		return (NULL);
+	{
+		char *Temp = Pointer;
+
+		while ((*Pointer++ = *Str++))
+			;
+		return (Temp);
+	}
 }
 
 /**
