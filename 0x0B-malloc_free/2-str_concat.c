@@ -2,119 +2,79 @@
 
 /**
  * str_concat - Function that concatenates two strings.
- * @s1: Character string.
- * @s2: Character string.
+ * @String1: Character string.
+ * @String2: Character string.
  * Return: If  NULL is passed, treat it as an empty string
  *         The function should return NULL on failure.
  */
 
-char *str_concat(char *s1, char *s2)
+char *str_concat(char *String1, char *String2)
 {
-	unsigned int _Strlen(char *);
-	void _strcat(char *, char *, char *);
+	void Concatenate(char *, char *, char *);
+	unsigned int StrlenM(char *, char *);
+	char *String_Total;
+	unsigned int Length_String;
 
-	if (s1 && s2)
+	Length_String = StrlenM(String1, String2);
+	String_Total = (char *)malloc(Length_String * sizeof(char));
+
+	if (String_Total)
 	{
-		char *Pointer = (char *)malloc((_Strlen(s1) + _Strlen(s2) + 1) * sizeof(char));
-
-		if (Pointer)
-		{
-			_strcat(s1, s2, Pointer);
-			return (Pointer);
-		}
-		else
-		{
-			free (Pointer);
-			return (NULL);
-		}
-	}
-	else if (s1 && !s2)
-	{
-		char *Pointer = (char *)malloc((_Strlen(s1) + 1) * sizeof(char));
-
-                if (Pointer)
-		{
-			_strcat(s1, s2 , Pointer);
-			return (Pointer);
-		}
-		else
-		{
-			free(Pointer);
-			return (NULL);
-		}
-	}
-	else if (!s1 && s2)
-	{
-                char *Pointer = (char *)malloc((_Strlen(s2) + 1) * sizeof(char));
-
-		if (Pointer)
-		{
-			_strcat(s1, s2, Pointer);
-			return (Pointer);
-		}
-		else
-		{
-			free(Pointer);
-			return (NULL);
-		}
-	}
-	else if (!s1 && !s2)
-	{
-		char *Pointer = (char *)malloc(sizeof(char));
-
-		if (Pointer)
-		{
-			*Pointer = '\0';
-			return (Pointer);
-		}
-		else
-		{
-			free(Pointer);
-			return (NULL);
-		}
+		Concatenate(String_Total, String1, String2);
+		return (String_Total);
 	}
 	else
+	{
+		free(String_Total);
 		return (NULL);
+	}
+
 }
 
 /**
- * _strcat - Function that concatenates two strings.
- * @Strgin1:
- * @String2: Variable that contains the data to be concatenated with dest.
- * Return: Returns the concatenated string.
+ * Concatenate - Concatenates the strings String1 and String2 to the memory
+ *               set pointed to by the pointer.
+ * @String_Total: Memory where the concatenation is saved.
+ * @String1: Pointer To String Character.
+ * @String2: Pointer To String Character.
  */
 
-void _strcat(char *String1, char *String2, char *Pointer)
+void Concatenate(char *String_Total, char *String1, char *String2)
 {
 	char State = 1;
 
 	while (State)
-		if (String1 && *String1)
-			*Pointer++ = *String1++;
-		else if (String2 && *String2)
-			*Pointer++ = *String2++;
+		if (String1 && (*String1))
+			*String_Total++ = *String1++;
+		else if (String2 && (*String2))
+			*String_Total++ = *String2++;
 		else
-			State = 0;
-	*Pointer = '\0';
+			State--;
 }
 
 /**
- * _Strlen - Returns the length of the visible character string.
- * @Pointer_To_Str: Pointer to a character string.
- * Return: Return Length.
+ * StrlenM - Function that counts characters, and if the two pointers are
+ *          NULL their quantity is 1, requirements for the holberton exercise.
+ * @String1: Pointer to string character.
+ * @String2: Pointer to String character.
+ * Return: Returns the length of the visible characters plus the null.
+ *         If both are null returns 1, demands for the exercise.
  */
 
-unsigned int _Strlen(char *Pointer_To_Str)
+unsigned int StrlenM(char *String1, char *String2)
 {
-	if (*Pointer_To_Str)
-	{
-		char *Temp = Pointer_To_Str;
+	unsigned char State;
+	unsigned int Counter = 1;
 
-		while (*Pointer_To_Str++)
-			;
+	State = 1;
 
-		return (--Pointer_To_Str - Temp);
-	}
-	else
-		return (0);
+	while (State)
+		if (String1 && (*String1))
+			Counter++, String1++;
+		else if (String2 && (*String2))
+			Counter++, String2++;
+		else
+			State--;
+
+	return (Counter);
 }
