@@ -12,9 +12,7 @@
 
 char *_strdup(char *Str)
 {
-	unsigned int Array_Length;
-
-	unsigned int _Strlen(char *);
+	unsigned int Array_Length, _Strlen(char *);
 
 	Array_Length = _Strlen(Str);
 
