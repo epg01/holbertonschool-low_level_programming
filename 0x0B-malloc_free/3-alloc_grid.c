@@ -86,13 +86,12 @@ unsigned int Creando_Array(int **DoblePointer, int width, int height)
 	State0 = State1 = 1;
 	while (State0)
 	{
-		if (Counter >= 0 && State1)
+		if (Counter && State1)
 		{
 			Counter--;
 			*DoblePointer = (int *)malloc(width * sizeof(int));
 		}
-
-		if (DoblePointer && State1)
+		if (*DoblePointer && State1)
 			DoblePointer++;
 		else if (Counter < height)
 		{
