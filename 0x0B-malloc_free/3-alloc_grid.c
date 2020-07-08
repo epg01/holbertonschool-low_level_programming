@@ -59,7 +59,7 @@ void Inicializacion_Del_Array(int **Doble_Pointer, int width, int height)
 	while (height)
 	{
 		if (width)
-			(*Doble_Pointer)[width--] = 0;
+			(*Doble_Pointer)[--width] = 0;
 		else
 		{
 			Doble_Pointer++;
