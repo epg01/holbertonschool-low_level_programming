@@ -15,7 +15,10 @@ void *malloc_checked(unsigned int Size_Array)
 	Pointer_G = malloc(Size_Array);
 
 	if (Pointer_G)
+	{
+		free(Pointer_G);
 		exit(98);
+	}
 	else
-		return (Poiner_G);
+		return (Pointer_G);
 }
