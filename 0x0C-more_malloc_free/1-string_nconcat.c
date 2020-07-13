@@ -12,7 +12,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *Length_Str(char *s2, unsigned int n, int Counter_Length);
 
-	char *Pointer_To_s1 = Length_Str(s1, n, 0);
+	char *Pointer_To_s1 = Length_Str(s1, n, TERMINADOR);
 
 	if (Pointer_To_s1)
 	{
@@ -40,14 +40,14 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 char *Length_Str(char *s1, unsigned int n, int Counter_Length)
 {
-	if (!(*s2))
+	if (!(*s1))
 	{
 		char *Pointer_To_Stor;
 
-		Pointer_To_Stor = malloc((Counter_Length + n)) * sizeof(char));
+		Pointer_To_Stor = malloc((Counter_Length + n) * sizeof(char));
 
 		return (Pointer_To_Stor);
 	}
 	else
-		return (Length_Str(++s2, n, ++Counter_Length));
+		return (Length_Str(++s1, n, ++Counter_Length));
 }
