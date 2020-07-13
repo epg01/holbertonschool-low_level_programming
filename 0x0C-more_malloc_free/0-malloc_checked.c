@@ -12,10 +12,10 @@ void *malloc_checked(unsigned int Size_Array)
 {
 	void *Pointer_G;
 
-	Pointer_G = malloc(sizeof(Size_Array));
+	Pointer_G = malloc(Size_Array);
 
 	if (Pointer_G)
 		exit(98);
 	else
-		return (Poiner_G)
+		return (Poiner_G);
 }
