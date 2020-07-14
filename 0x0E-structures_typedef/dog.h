@@ -1,32 +1,25 @@
-#ifndef DOG
-#define DOG
+#ifndef HOLBERTON
+#define HOLBERTON
+
 /**
- * struct dog - Structure
- * @name: value
- * @age: float value
- * @owner: pointer to value
+ * struct dog - It's a dog, what can I say
+ * @name: dog's name
+ * @age: dog's age
+ * @owner: dog's owner name
  *
- * Description: structure for a dog
+ * Description: It's a dog, what can I say
  */
-struct dog
+typedef struct dog
 {
 	char *name;
 	float age;
 	char *owner;
-	/**
-	 * @name: pointer to a value
-	 * @age: value with an float
-	 * @owner: pointer to a value
-	 *
-	 * Description: This structure is for a class dog
-	 */
-};
+} dog_t;
 
-typedef struct dog dog_t;
-
+int _putchar(char c);
 void init_dog(struct dog *d, char *name, float age, char *owner);
 void print_dog(struct dog *d);
 dog_t *new_dog(char *name, float age, char *owner);
 void free_dog(dog_t *d);
 
-#endif /* DOG */
+#endif
