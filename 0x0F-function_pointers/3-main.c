@@ -35,5 +35,5 @@ int main(int argc, char *argv[])
 		exit(100);
 	}
 	printf("%d\n", Pointer_Obtener_Operador(atoi(*(argv + 1)), Number2));
-	return 0;
+	return (0);
 }
