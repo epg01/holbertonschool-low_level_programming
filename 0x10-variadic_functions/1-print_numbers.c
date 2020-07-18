@@ -1,26 +1,25 @@
-#include "variadic_functions.h"
+#include <stdio.h>
+#include <stdarg.h>
+
 /**
- * print_numbers - prints all undefined arguments
- * @separator: char
- * @n: value
- *
- * Return: none
+ * print_numbers - suma
+ * @separator: The first string
+ * @n: the second string
+ * ...: arguments
+ * Return: dest
  */
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
-	va_list ap;
+	va_list list;
 	unsigned int i;
 
-	va_start(ap, n);
-	if (separator != NULL)
+	va_start(list, n);
+	for (i = 0; i < n; i++)
 	{
-		for (i = 0; i < n; i++)
-		{
-			printf("%d", va_arg(ap, int));
-			if (i < (n - 1))
-				printf("%s", separator);
-		}
+		printf("%d", va_arg(list, int));
+		if (separator != NULL && (i + 1) != n)
+			printf("%s", separator);
 	}
-	va_end(ap);
-	putchar(10);
+	va_end(list);
+	printf("\n");
 }
