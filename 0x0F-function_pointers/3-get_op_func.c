@@ -19,7 +19,7 @@ int (*get_op_func(char *Character))(int Number1, int Number2)
 	};
 	int i = 0;
 
-	while (ops[i].operador != NULL)
+	while (ops[i].operador != NULL && Character[1] == '\0')
 	{
 		if (*(ops[i].operador) == *Character)
 			return (ops[i].function);
