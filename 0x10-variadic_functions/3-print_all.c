@@ -1,82 +1,84 @@
 #include "variadic_functions.h"
 
 /**
- * char_print - function that prints a char
- * @list: list of functions
+ * Print_Character - Function that prints a character
+ * @lista: Contains the arguments that were passed to the function.
+ * @Separador: Funciona como un contador para imprimir espacio entre
+ *             el contenido de los argumentos.
  */
-void char_print(va_list list)
+
+void Print_Character(va_list lista, unsigned short int Separador)
 {
-	printf("%c", va_arg(list, int));
+	printf((Separador < 2) ? "%c " : "%c\n", va_arg(lista, int));
 }
 
 /**
- * int_print - function that prints an int
- * @list: list of functions
+ * Print_Integer - Function that prints a number integer
+ * @lista: Contains the arguments that were passed to the function.
+ * @Separador: Funciona como un contador para imprimir espacio entre
+ *             el contenido de los argumentos.
  */
-void int_print(va_list list)
+
+void Print_Integer(va_list lista, unsigned short int Separador)
 {
-	printf("%d", va_arg(list, int));
+	printf((Separador < 2) ? "%d " : "%d\n", va_arg(lista, int));
 }
 
 /**
- * float_print - function that prints a float
- * @list: list of functions
+ * Print_Float - Function that prints a number point-flot
+ * @lista: Contains the arguments that were passed to the function.
+ * @Separador: Funciona como un contador para imprimir espacio entre
+ *             el contenido de los argumentos.
  */
-void float_print(va_list list)
+
+void Print_Float(va_list lista, unsigned short int Separador)
 {
-	printf("%f", va_arg(list, double));
+	printf((Separador < 2) ? "%f " : "%f\n", va_arg(lista, double));
 }
 
 /**
- * str_print - function that prints a string
- * @list: list of functions
+ * Print_String - Function that prints a character string
+ * @lista: Contains the arguments that were passed to the function.
+ * @Separador: Funciona como un contador para imprimir espacio entre
+ *             el contenido de los argumentos.
  */
-void str_print(va_list list)
-{
-	char *t;
 
-	t = va_arg(list, char *);
-	if (t == NULL)
-	{
-		t = "(nil)";
-	}
-	printf("%s", t);
+void Print_String(va_list lista, unsigned short int Separador)
+{
+	printf((Separador < 2) ? "%s" : "%s\n", va_arg(lista, char *));
 }
 
 /**
- * print_all - function that prints anything
- * @format: constant string
- *
+ * print_all - function that prints anything.
+ * @format: Pointer that Contains the arguments that were passed to the funct.
  */
+
 void print_all(const char * const format, ...)
 {
-	forma_t new[] = {
-		{'c', char_print},
-		{'i', int_print},
-		{'f', float_print},
-		{'s', str_print},
+	struct formato_ formato[] = {
+		{"c", Print_Character},
+		{"i", Print_Integer},
+		{"f", Print_Float},
+		{"s", Print_String}
 	};
+	unsigned short int index = 0;
+	unsigned short int Separador = 0;
+	unsigned short int index_Formato = 0;
+	char State = 0;
 
-	int i = 0, j;
-	char *pc = "";
-	va_list list;
+	va_list Lista_Argument;
 
-	va_start(list, format);
-	while (format != NULL && format[i] != '\0')
+	va_start(Lista_Argument, format);
+	while (format && format[index])
 	{
-		j = 0;
-		while (j < 4)
+		if (*(formato[index_Formato].formato) == format[index])
 		{
-			if (new[j].op == format[i])
-			{
-				printf("%s", pc);
-				new[j].f(list);
-				pc = ", ";
-			}
-			j++;
+			formato[index_Formato].Pointer_Funcion(Lista_Argument, Separador++);
+			State = 1;
 		}
-		i++;
+		index_Formato++;
+		if (State || index_Formato == 4)
+			index_Formato = 0, State = 0, index++;
 	}
-	printf("\n");
-	va_end(list);
+	va_end(Lista_Argument);
 }
