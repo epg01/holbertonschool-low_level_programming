@@ -1,5 +1,20 @@
 #include "variadic_functions.h"
 
+short int Counter_Ocurrence(const char * const format)
+{
+	short int Counter = 0;
+	unsigned short int index = 0;
+
+	while (format && format[index])
+	{
+		if (format[index] == 'c' || format[index] == 'i'
+			|| format[index] == 's' || format[index] == 'f')
+			Counter++;
+		index++;
+	}
+	return (Counter);
+}
+
 /**
  * Print_Character - Function that prints a character
  * @lista: Contains the arguments that were passed to the function.
@@ -7,9 +22,9 @@
  *             el contenido de los argumentos.
  */
 
-void Print_Character(va_list lista, unsigned short int Separador)
+void Print_Character(va_list lista, short int Separador, short int Limit)
 {
-	printf((Separador < 2) ? "%c " : "%c\n", va_arg(lista, int));
+	printf((Separador < Limit - 1) ? "%c " : "%c\n", va_arg(lista, int));
 }
 
 /**
@@ -19,9 +34,9 @@ void Print_Character(va_list lista, unsigned short int Separador)
  *             el contenido de los argumentos.
  */
 
-void Print_Integer(va_list lista, unsigned short int Separador)
+void Print_Integer(va_list lista, short int Separador, short int Limit)
 {
-	printf((Separador < 2) ? "%d " : "%d\n", va_arg(lista, int));
+	printf((Separador < Limit - 1) ? "%d " : "%d\n", va_arg(lista, int));
 }
 
 /**
@@ -31,9 +46,9 @@ void Print_Integer(va_list lista, unsigned short int Separador)
  *             el contenido de los argumentos.
  */
 
-void Print_Float(va_list lista, unsigned short int Separador)
+void Print_Float(va_list lista, short int Separador, short int Limit)
 {
-	printf((Separador < 2) ? "%f " : "%f\n", va_arg(lista, double));
+	printf((Separador < Limit - 1) ? "%f " : "%f\n", va_arg(lista, double));
 }
 
 /**
@@ -43,9 +58,9 @@ void Print_Float(va_list lista, unsigned short int Separador)
  *             el contenido de los argumentos.
  */
 
-void Print_String(va_list lista, unsigned short int Separador)
+void Print_String(va_list lista, short int Separador, short int Limit)
 {
-	printf((Separador < 2) ? "%s" : "%s\n", va_arg(lista, char *));
+	printf((Separador < Limit - 1) ? "%s" : "%s\n", va_arg(lista, char *));
 }
 
 /**
@@ -55,25 +70,28 @@ void Print_String(va_list lista, unsigned short int Separador)
 
 void print_all(const char * const format, ...)
 {
+	void ini_struc(format_ *formato, const char * const format);
+
 	format_ formato[] = {
-		{"c", Print_Character},
-		{"i", Print_Integer},
-		{"f", Print_Float},
-		{"s", Print_String}
+		{0, 0, "c", Print_Character},
+		{0, 0, "i", Print_Integer},
+		{0, 0, "f", Print_Float},
+		{0, 0, "s", Print_String}
 	};
 	unsigned short int index = 0;
-	unsigned short int Separador = 0;
 	unsigned short int index_Formato = 0;
 	char State = 0;
 
 	va_list Lista_Argument;
+
+	ini_struc(formato, format);
 
 	va_start(Lista_Argument, format);
 	while (format && format[index])
 	{
 		if (*(formato[index_Formato].formato) == format[index])
 		{
-			formato[index_Formato].Pointer_Funcion(Lista_Argument, Separador++);
+			formato[index_Formato].Pointer_Funcion(Lista_Argument, (formato[1].Separador)++, formato[2].Limit);
 			State = 1;
 		}
 		index_Formato++;
@@ -81,4 +99,12 @@ void print_all(const char * const format, ...)
 			index_Formato = 0, State = 0, index++;
 	}
 	va_end(Lista_Argument);
+}
+
+void ini_struc(format_ *formato, const char * const format)
+{
+	unsigned short int Counter = 0;
+
+	while(Counter < SIZE_OF_ARRAY)
+		(formato[Counter++].Limit) = Counter_Ocurrence(format);
 }

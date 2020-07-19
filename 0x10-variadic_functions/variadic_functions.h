@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#define SIZE_OF_ARRAY sizeof(format_) / sizeof(formato)
 /**
  * struct op - Struct op
  *
@@ -12,11 +13,13 @@
  * @Pointer_Function: The function associated
  */
 
-struct formato_
+typedef struct formato_
 {
+	short int Separador;
+	short int Limit;
         char *formato;
-        void (*Pointer_Funcion)(va_list list, unsigned short int Separador);
-};
+        void (*Pointer_Funcion)(va_list list, short int Separador, short int limit);
+}format_;
 
 int sum_them_all(const unsigned int n, ...);
 void print_numbers(const char *separator, const unsigned int n, ...);
