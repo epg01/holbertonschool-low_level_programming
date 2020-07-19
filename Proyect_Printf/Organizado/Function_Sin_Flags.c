@@ -16,3 +16,17 @@ int Print_Character(va_list Lista)
 	write(1, &Solve_Character, 1);
 	return (1);
 }
+
+int Print_Integer(va_list Lista)
+{
+	print_number(va_arg(Lista, int));
+        return (1);
+}
+
+int Print_Porcentaje(va_list Lista)
+{
+	(void)Lista;
+
+	write(1, "%", 1);
+	return (1);
+}

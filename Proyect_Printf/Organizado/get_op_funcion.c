@@ -3,14 +3,16 @@
 int (*get_op(const char **Character))(va_list Lista)
 {
 	Formato formato [] = {
-		{"c", Print_Character},
-		{"s", Print_String},
+		{"c",  Print_Character},
+		{"s",  Print_String},
+		{"id", Print_Integer},
+		{"%",  Print_Porcentaje},
 		{NULL, NULL}
 	};
 
 	int index = 0;
 
-	if (**Character == '%')
+	if (**Character == '%' && (*Character)[-1] != '%')
 		(*Character)++;
 
 	while ((formato[index].formato))
