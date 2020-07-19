@@ -55,7 +55,7 @@ void Print_String(va_list lista, unsigned short int Separador)
 
 void print_all(const char * const format, ...)
 {
-	struct formato_ formato[] = {
+	format_ formato[] = {
 		{"c", Print_Character},
 		{"i", Print_Integer},
 		{"f", Print_Float},
