@@ -90,8 +90,7 @@ void print_number_unsigned(long int Number)
 
 	while (PowerOf10)
 	{
-		if (((Number / PowerOf10) >= POWER_OF_10 ||
-			  (Number / PowerOf10 <= -10)) && (State))
+		if (((Number / PowerOf10) >= POWER_OF_10) && (State))
 		{
 			PowerOf10 *= POWER_OF_10;
 			continue;
@@ -105,12 +104,6 @@ void print_number_unsigned(long int Number)
 		{
 			if (Number >= 0)
 				SolveCharacter = (Number / PowerOf10) % POWER_OF_10 + '0';
-			else
-			{
-				SolveCharacter = Number / PowerOf10 % 10;
-				SolveCharacter *= (-1);
-				SolveCharacter += '0';
-			}
 			PowerOf10 /= POWER_OF_10;
 		}
 		if (SolveCharacter)
