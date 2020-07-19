@@ -1,13 +1,5 @@
 #include "holberton.h"
 
-int main()
-{
-	_printf("Hola como estas\n");
-	_printf("%           d----      %i\n", 124567,-124);
-	_printf("Hola como estas \n %%s\n", "hola soy un string\n");
-	return (0);
-}
-
 int _printf(const char *format, ...)
 {
 	int (*Pointer_Function)(va_list);

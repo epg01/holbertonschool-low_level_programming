@@ -30,3 +30,20 @@ int Print_Porcentaje(va_list Lista)
 	write(1, "%", 1);
 	return (1);
 }
+
+int Print_Hexagecimal(va_list Lista)
+{
+	(void)Lista;
+	return (1);
+}
+int Print_Unsigned_Integer(va_list Lista)
+{
+	print_number_unsigned((long int)va_arg(Lista,unsigned int));
+	(void)Lista;
+	return (1);
+}
+int Print_Octal(va_list Lista)
+{
+	(void)Lista;
+	return (1);
+}
