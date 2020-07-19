@@ -5,7 +5,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define SIZE_OF_ARRAY sizeof(format_) / sizeof(formato)
+#define ini_struc(formato,format, Counter)  while(Counter < 4)(formato[Counter++].Limit) = Counter_Ocurrence(format);
+
 /**
  * struct op - Struct op
  *

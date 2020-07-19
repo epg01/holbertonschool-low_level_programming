@@ -1,5 +1,11 @@
 #include "variadic_functions.h"
 
+/**
+ * Counter_Ocurrence - Counts the occurrences of the format.
+ * @format: pointer a la varialbe format
+ * Return: Number of ocurrence.
+ */
+
 short int Counter_Ocurrence(const char * const format)
 {
 	short int Counter = 0;
@@ -70,8 +76,6 @@ void Print_String(va_list lista, short int Separador, short int Limit)
 
 void print_all(const char * const format, ...)
 {
-	void ini_struc(format_ *formato, const char * const format);
-
 	format_ formato[] = {
 		{0, 0, "c", Print_Character},
 		{0, 0, "i", Print_Integer},
@@ -84,8 +88,9 @@ void print_all(const char * const format, ...)
 
 	va_list Lista_Argument;
 
-	ini_struc(formato, format);
+	ini_struc(formato, format, index)
 
+	index = 0;
 	va_start(Lista_Argument, format);
 	while (format && format[index])
 	{
@@ -99,12 +104,4 @@ void print_all(const char * const format, ...)
 			index_Formato = 0, State = 0, index++;
 	}
 	va_end(Lista_Argument);
-}
-
-void ini_struc(format_ *formato, const char * const format)
-{
-	unsigned short int Counter = 0;
-
-	while(Counter < SIZE_OF_ARRAY)
-		(formato[Counter++].Limit) = Counter_Ocurrence(format);
 }
