@@ -1,9 +1,12 @@
 #include "holberton.h"
 
-int Print_Hexagecimal(va_list Lista)
+int Print_Hexagecimal_UpperCase(va_list Lista)
 {
-	(void)Lista;
-	return (1);
+	return (Print_Number_Hexadecimal_UpperCase(va_arg(Lista, unsigned int), 0));
+}
+int Print_Hexagecimal_LowerCase(va_list Lista)
+{
+	return (Print_Number_Hexadecimal_LowerCase(va_arg(Lista, unsigned int), 0));
 }
 int Print_Octal(va_list Lista)
 {

@@ -32,6 +32,9 @@ int main(void)
 
 	_printf("%b\n", 98);
 
+	_printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+	printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+
 	return (0);
 
 	return (0);
