@@ -16,6 +16,8 @@ int _printf(const char *format, ...)
 
 			if(Pointer_Function)
 				Size_Bit += Pointer_Function(Pointer_Argument);
+			else
+				Size_Bit += Print_Unknown(format - 1);
 		}
 		else
 		{

@@ -13,6 +13,7 @@ int (*get_op(const char **Character))(va_list Lista)
 		{"u",  Print_Unsigned_Integer},
 		{"o",  Print_Octal},
 		{"b",  Print_Number_Binario},
+		{"p",  Print_Address},
 		{NULL, NULL}
 	};
 
@@ -30,5 +31,5 @@ int (*get_op(const char **Character))(va_list Lista)
 		else
 			index++;
 	}
-	return (0);
+	return (NULL);
 }
