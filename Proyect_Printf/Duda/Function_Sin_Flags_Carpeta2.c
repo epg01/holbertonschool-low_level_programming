@@ -25,3 +25,12 @@ int Print_Number_Binario(va_list Lista)
 
 	return (Bits);
 }
+
+int Print_STRING(va_list Lista)
+{
+	int Bits;
+
+	Bits = PrintSTRING(va_arg(Lista, char *));
+
+	return (Bits);
+}

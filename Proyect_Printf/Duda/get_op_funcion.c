@@ -5,6 +5,7 @@ int (*get_op(const char **Character))(va_list Lista)
 	Formato formato [] = {
 		{"c",  Print_Character},
 		{"s",  Print_String},
+		{"S",  Print_STRING},
 		{"id", Print_Integer},
 		{"%",  Print_Porcentaje},
 		{"X",  Print_Hexagecimal_UpperCase},

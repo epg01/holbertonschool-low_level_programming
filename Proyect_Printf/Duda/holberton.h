@@ -24,6 +24,7 @@ int Print_Hexagecimal_UpperCase(va_list Lista);
 int Print_Unsigned_Integer(va_list Lista);
 int Print_Octal(va_list Lista);
 int Print_Number_Binario(va_list Lista);
+int Print_STRING(va_list Lista);
 
 int (*get_op(const char **Character))(va_list Lista);
 
@@ -35,7 +36,7 @@ int Print_Binario(int Number, int Legth_Of_Characer_impresos);
 int Print_Number_Octal(long int Number, int Legth_Of_Characer_impresos);
 int Print_Number_Hexadecimal_LowerCase(long int Number, int Legth_Of_Characer_impresos);
 int Print_Number_Hexadecimal_UpperCase(long int Number, int Legth_Of_Characer_impresos);
-
+int PrintSTRING(char *String);
 
 int _printf(const char *format, ...);
 

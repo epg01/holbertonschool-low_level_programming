@@ -35,6 +35,8 @@ int main(void)
 	_printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
 	printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
 
+	_printf("%S\n", "Holberton\nSchool");
+
 	return (0);
 
 	return (0);

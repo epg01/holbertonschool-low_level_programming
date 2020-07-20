@@ -146,3 +146,24 @@ int Print_Number_Hexadecimal_UpperCase(long int Number, int Legth_Of_Characer_im
 	}
 	return (Legth_Of_Characer_impresos);
 }
+
+int PrintSTRING(char *String)
+{
+	int Counter = 0;
+
+	while(String && *String)
+	{
+		if ((*String < 32 || *String >= 127))
+		{
+			write(1, "\\", 1);
+			write(1, "x", 1);
+			write(1, "0", 1);
+			Print_Number_Hexadecimal_UpperCase((int)*String, 0);
+			String++;
+			Counter += 4;
+		}
+		write(1, &(*String++), 1);
+		Counter++;
+	}
+	return (Counter);
+}
