@@ -115,17 +115,24 @@ int Print_Binario(int Number, int Legth_Of_Characer_impresos)
 {
         if ((Number / 2) == 1)
 	{
-		putchar(Number / 2 + '0');
-		putchar(Number % 2 + '0');
+		int Number2 = Number / 2 + '0';
+
+		write(1, &Number2,1);
+
+		Number = Number % 2 + '0';
+		write(1, &Number, 1);
 		return (Legth_Of_Characer_impresos + 2);
 	}
 	if ((Number / 2) == 0)
 	{
-		putchar(Number % 2 + '0');
+		Number = Number % 2 + '0';
+		write(1, &Number,1);
                 return (Legth_Of_Characer_impresos + 1);
 	}
 	else
 		Legth_Of_Characer_impresos = Print_Binario(Number / 2, ++Legth_Of_Characer_impresos);
-	putchar(Number % 2 + '0');
+
+	Number = Number % 2 + '0';
+	write(1, &Number, 1);
 	return (Legth_Of_Characer_impresos);
 }
