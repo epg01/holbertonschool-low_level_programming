@@ -1,32 +1,63 @@
+#include <string.h>
 #include "lists.h"
+
 /**
- * add_node_end - prints string
- * @head: pointer to string
- * @str: pointer to string
- * Return: none
+ * _strlen - returns the length of a string
+ * @s: string
+ *
+ * Return: length of s
+ */
+
+int _strlen(char *s)
+{
+
+	int size;
+
+	size = 0;
+
+	while (s[size] != '\0')
+	{
+		size++;
+	}
+
+	return (size);
+}
+/**
+ * add_node_end -  adds a new node at the end of a list_t list.
+ *
+ * @head: head
+ * @str: string
+ * Return: list with new node
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *temp = *head;
-	list_t *node;
-	int i;
+	list_t *new_node;
+	char *s;
+	list_t *current = *head;
 
-	node = malloc(sizeof(list_t));
-	if (node == NULL)
+	new_node = malloc(sizeof(list_t));
+	if (new_node == NULL)
 		return (NULL);
-
-	node->next = NULL;
-	node->str = strdup(str);
-	for (i = 0; str[i] != '\0'; i++)
-		;
-	node->len = i;
-	if (*head == NULL)
-		*head = node;
+	s = strdup(str);
+	if (s == NULL)
+	{
+		free(new_node);
+		return (NULL);
+	}
+	new_node->str = s;
+	new_node->len = _strlen(s);
+	new_node->next = NULL;
+	if (*head)
+	{
+		while (current->next)
+		{
+			current = current->next;
+		}
+		current->next = new_node;
+	}
 	else
 	{
-		while (temp->next != NULL)
-			temp = temp->next;
-		temp->next = node;
+		*head = new_node;
 	}
-	return (node);
+	return (*head);
 }
