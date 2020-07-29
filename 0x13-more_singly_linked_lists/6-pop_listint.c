@@ -1,25 +1,25 @@
-#include <stddef.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 #include "lists.h"
+#include <stdlib.h>
 /**
- * pop_listint - writes the character c to stdout
- * @head: The character to print
- *
- * Return: content
+ * pop_listint - pops off the head of the list and returns its contents
+ * @head: head of the list
+ * Return: contents of head
  */
 int pop_listint(listint_t **head)
 {
-	int x = 0;
-	listint_t *aux;
+	int i;
+	listint_t *current, *tmp;
 
-	if (*head == NULL)
+	if (head == NULL)
 		return (0);
-	aux = *head;
-	x = (*head)->n;
-	aux = aux->next;
-	free(*head);
-	*head = aux;
-	return (x);
+	tmp = current = *head;
+	if (*head)
+	{
+		i = current->n;
+		*head = current->next;
+		free(tmp);
+	}
+	else
+		i = 0;
+	return (i);
 }

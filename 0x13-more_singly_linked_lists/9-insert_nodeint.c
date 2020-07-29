@@ -1,43 +1,38 @@
-#include <stddef.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 #include "lists.h"
+#include <stdlib.h>
 /**
- * *insert_nodeint_at_index - writes the character c to stdout
- * @head: The character to print
- * @idx: name
- * @n: new nodo
- *
- * Return: list
+ * insert_nodeint_at_index - insert a node at index...
+ * @head: head of the list
+ * @index: location to insert node
+ * @n: value of the inserted node
+ * Return: pointer to head of list
  */
-listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
+listint_t *insert_nodeint_at_index(listint_t **head, unsigned int index, int n)
 {
-	listint_t *aux;
-	listint_t *tmp;
-	unsigned int t = 1;
+	listint_t *current, *new;
 
-	aux = malloc(sizeof(listint_t));
-	if (aux == NULL)
+	current = *head;
+	new = malloc(sizeof(listint_t));
+	if (new == NULL)
 		return (NULL);
-	aux->n = n;
-	if (idx == 0)
+	new->n = n;
+	if (index == 0)
 	{
-		aux->next = (*head);
-		(*head) = aux;
-		return (aux);
+		new->next = current;
+		*head = new;
+		return (*head);
 	}
-	tmp = *head;
-	while (t < idx && tmp->next)
+	while (index > 1)
 	{
-		tmp = tmp->next;
-		t++;
+		current = current->next;
+		index--;
+		if (!current)
+		{
+			free(new);
+			return (NULL);
+		}
 	}
-	if (t == idx)
-	{
-		aux->next = tmp->next;
-		tmp->next = aux;
-		return (aux);
-	}
-	return (NULL);
+	new->next = current->next;
+	current->next = new;
+	return (new);
 }

@@ -1,23 +1,21 @@
-#include <stddef.h>
-#include <stdlib.h>
-#include <stdio.h>
 #include "lists.h"
+#include <stdlib.h>
 /**
- * *add_nodeint - writes the character c to stdout
- * @head: The character to print
- * @n: the number
- *
- * Return: On success 1.
+ * add_nodeint - add new nodes to the list
+ * @head: current place in the list
+ * @n: int to add to the list
+ * Return: pointer to current position in list
  */
 listint_t *add_nodeint(listint_t **head, const int n)
 {
-	listint_t *aux;
+	listint_t *new;
 
-	aux = malloc(sizeof(listint_t));
-	if (aux == NULL)
+	new = *head;
+	new = malloc(sizeof(listint_t));
+	if (new == NULL)
 		return (NULL);
-	aux->n = n;
-	aux->next = *head;
-	*head = aux;
-	return (aux);
+	new->n = n;
+	new->next = *head;
+	*head = new;
+	return (*head);
 }

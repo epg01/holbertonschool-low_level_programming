@@ -1,33 +1,47 @@
-#include <stddef.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 #include "lists.h"
+#include <stdlib.h>
+
 /**
- * *reverse_listint - writes the character c to stdout
- * @head: The character to print
+ * reverse_recur - recursively reverses a listint list
  *
- * Return: list
+ * @first: node to reverse
+ * @second: node after node to reverse
+ *
+ * Return: void
+ */
+listint_t *reverse_recur(listint_t *first, listint_t *second)
+{
+	listint_t *ptr, *prev = NULL;
+
+	ptr = first;
+	while (ptr->next != second)
+	{
+		prev = ptr;
+		ptr = ptr->next;
+	}
+
+	if (prev != NULL)
+		prev->next = first;
+	second = first->next;
+	first->next = ptr->next;
+	if (first != ptr && second != first)
+		second = reverse_recur(second, first);
+	ptr->next = second;
+	return (ptr);
+}
+
+/**
+ * reverse_listint - reverses a listint list
+ *
+ * @head: list to reverse
+ *
+ * Return: new head of list
  */
 listint_t *reverse_listint(listint_t **head)
 {
-	listint_t *aux = *head;
-	listint_t *aux1;
-
-	if (*head == NULL)
+	if (head == NULL || *head == NULL)
 		return (NULL);
 
-	(*head) = (*head)->next;
-	aux->next = NULL;
-	aux1 = *head;
-	while ((*head))
-	{
-
-		(*head) = (*head)->next;
-		aux1->next = aux;
-		aux = aux1;
-		aux1 = *head;
-	}
-	(*head) = aux;
+	*head = reverse_recur(*head, NULL);
 	return (*head);
 }

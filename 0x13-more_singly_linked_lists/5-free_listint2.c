@@ -1,26 +1,21 @@
-#include <stddef.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 #include "lists.h"
+#include <stdlib.h>
 /**
- * free_listint2 - writes the character c to stdout
- * @head: The character to print
- *
- * Return: list
+ * free_listint2 - Frees a list and sets its head to NULL
+ * @head: double pointer to head of list
  */
 void free_listint2(listint_t **head)
 {
-	listint_t *aux;
+	listint_t *temp, *current;
 
 	if (head == NULL)
 		return;
-	while ((*head)->next != NULL)
+	current = *head;
+	while (current != NULL)
 	{
-		aux = *head;
-		free(*head);
-		*head = aux->next;
+		temp = current;
+		current = current->next;
+		free(temp);
 	}
-	free(*head);
-	(*head) = NULL;
+	*head = NULL;
 }

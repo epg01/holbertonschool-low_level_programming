@@ -1,24 +1,14 @@
-#include <stddef.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 #include "lists.h"
 /**
- * sum_listint - writes the character c to stdout
- * @head: The character to print
- *
- * Return: list
+ * sum_listint - sums all elements of a list...
+ * @head: pointer to the head of the list
+ * Return: sum of all elements
  */
 int sum_listint(listint_t *head)
 {
-	int t = 0;
+	int sum;
 
-	if (head == NULL)
-		return (0);
-	while (head != NULL)
-	{
-		t += head->n;
-		head = head->next;
-	}
-	return (t);
+	for (sum = 0; head; sum += head->n, head = head->next)
+		;
+	return (sum);
 }

@@ -1,27 +1,21 @@
-#include <stddef.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 #include "lists.h"
 /**
- * *get_nodeint_at_index - writes the character c to stdout
- * @head: The character to print
- * @index: name
- *
- * Return: list
+ * get_nodeint_at_index - gets the nth node of the list
+ * @head: head of the list
+ * @index: which node to stop at
+ * Return: pointer to the nth node
  */
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {
-	listint_t *aux;
-	unsigned int t = 0;
+	unsigned int i;
 
-	aux = head;
-	while (t < index)
+	i = 0;
+	while (i < index)
 	{
-		if (aux == NULL)
+		if (head->next == NULL)
 			return (NULL);
-		aux = aux->next;
-		t++;
+		head = head->next;
+		i++;
 	}
-	return (aux);
+	return (head);
 }
