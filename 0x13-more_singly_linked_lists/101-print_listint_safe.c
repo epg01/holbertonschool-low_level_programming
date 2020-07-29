@@ -1,32 +1,44 @@
-#include <stddef.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 #include "lists.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <stddef.h>
+
 /**
- * print_listint_safe - writes the character c to stdout
- * @head: The character to print
- *
- * Return: list
+ * print_listint_safe - Prints all the elements of a listint_t list.
+ * @head: Head pointer
+ * Return: number of elements.
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t i = 0;
-	listint_t *aux = (void *) head;
+	size_t size = 0;
+	size_t i;
+	const listint_t *array[500];
 
-	while (head != NULL && aux > head->next)
+	if (head == NULL)
+		return (0);
+
+/*node = head;*/
+
+	while (head)
 	{
-		aux = (void *)head;
-		printf("[%p] %d\n", (void *)head, head->n);
-		i++;
+		i = 0;
+		while (i < size)
+		{
+/*printf("addres [%lu] =[%p]\n", i, (void *)array[i]);*/
+			if (array[i] == head)
+			{
+				printf("-> [%p] %i\n", (void *)head, head->n);
+				return (size);
+			}
+			i++;
+		}
+
+		printf("[%p] %i\n", (void *)head, head->n);
+		array[size] = head;
 		head = head->next;
+		size++;
+
 	}
-	if (head != NULL)
-	{
-		printf("[%p] %d\n", (void *)head, head->n);
-		i++;
-		head = head->next;
-		printf("-> [%p] %d\n", (void *)head, head->n);
-	}
-	return (i);
+
+	return (size);
 }
