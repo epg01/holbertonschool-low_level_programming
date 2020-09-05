@@ -13,9 +13,7 @@
 
 int Form_Recursive(dlistint_t *Element, int Suma, signed char State)
 {
-	if (!Element)
-		return (Suma);
-	else
+	if (Element)
 	{
 		if (!State)
 		{
@@ -35,6 +33,9 @@ int Form_Recursive(dlistint_t *Element, int Suma, signed char State)
 			return (Form_Recursive(Element->prev, Suma, 1));
 		}
 	}
+	else if (!Element)
+		return (Suma);
+
 	return (Suma);
 }
 
