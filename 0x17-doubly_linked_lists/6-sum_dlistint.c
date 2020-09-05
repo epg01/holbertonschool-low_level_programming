@@ -33,6 +33,7 @@ int Form_Recursive(dlistint_t *Element, int Suma, signed char State)
 			return (Form_Recursive(Element->prev, Suma, 1));
 		}
 	}
+	return (Suma);
 }
 
 /**
