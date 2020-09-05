@@ -4,8 +4,10 @@
  *  Form_Recursive - function that returns the sum of all the data (n)
  *                   of a dlistint_t linked list.
  * @Element: Pointer to data structure
- * Suma: Suma.
- * State: State.
+ * @Suma: Variable that contains the sum of all the data in the
+ *        structure.
+ * @State: Check if the recursion is left or right, where 0 is right
+ *         and -1 is left.
  * Return: if the list is empty, return 0.
  */
 
