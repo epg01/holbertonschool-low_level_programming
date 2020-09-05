@@ -14,6 +14,6 @@ void free_dlistint(dlistint_t *Element)
 		Old_Element = Element;
 		Element     = Element->next;
 		free(Old_Element);
-		free(Element);
+		free_dlistint(Element->next);
 	}
 }
