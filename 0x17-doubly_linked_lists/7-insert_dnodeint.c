@@ -58,11 +58,11 @@ R_insert_dnodeint_at_index(dlistint_t **Head, unsigned int idx, int n)
 {
 	if (*Head && (*Head)->prev && idx != 0 && idx != STATE)
 		*Head = Back_Go((*Head)->prev, idx, n);
-	if (*Head && !(*Head)->prev && idx)
+	if (*Head && !(*Head)->prev && (*Head)->next && idx)
 	{
 		return (Forward((*Head)->next, --idx, n));
 	}
-	else if (!idx || idx == STATE)
+	else if (!idx || idx == STATE || !(*Head)->next)
 	{
 		dlistint_t *New_Element;
 
@@ -74,14 +74,14 @@ R_insert_dnodeint_at_index(dlistint_t **Head, unsigned int idx, int n)
 			New_Element->prev = (*Head), (*Head) = New_Element;
 			return (New_Element);
 		}
-		else if (!(*Head)->prev)
+		else if (!(*Head)->prev && !idx)
 		{
 			New_Element->next = (*Head);
 			New_Element->prev = (*Head)->prev;
 			(*Head)->prev     = New_Element, (*Head) = New_Element;
 			return (New_Element);
 		}
-		else if (idx == STATE)
+		else if (idx == STATE || idx == 1)
 		{
 			New_Element->next = (*Head)->next;
 			New_Element->prev = (*Head);
