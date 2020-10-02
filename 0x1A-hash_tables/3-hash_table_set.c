@@ -1,6 +1,28 @@
 #include "hash_tables.h"
 
 /**
+ * update -  function to uptdate a key.
+ * @ptr: pointer to structure node.
+ * @key: key of the hash table.
+ * @value: value of the hash table.
+ * Return: 1 sucess and 0 failure.
+ */
+int update(hash_node_t *ptr, char *value, char *key)
+{
+	while (ptr)
+	{
+		if (!strcmp(key, ptr->key))
+		{
+			free(ptr->value);
+			ptr->value = strdup(value);
+			return (1);
+		}
+		ptr = ptr->next;
+	}
+	return (0);
+}
+
+/**
  * Inst -  function to insert a key/value
  * @array_ptr: pointer to structure node
  * @key: key
@@ -34,28 +56,6 @@ int Inst(hash_node_t **array_ptr, char *value, char *key)
 	new->key   = strdup(key);
 	new->value = strdup(value);
 	return (1);
-}
-
-/**
- * update -  function to uptdate a key.
- * @ptr: pointer to structure node.
- * @key: key of the hash table.
- * @value: value of the hash table.
- * Return: 1 sucess and 0 failure.
- */
-int update(hash_node_t *ptr, char *value, char *key)
-{
-	while (ptr)
-	{
-		if (!strcmp(key, ptr->key))
-		{
-			free(ptr->value);
-			ptr->value = strdup(value);
-			return (1);
-		}
-		ptr = ptr->next;
-	}
-	return (0);
 }
 
 /**
