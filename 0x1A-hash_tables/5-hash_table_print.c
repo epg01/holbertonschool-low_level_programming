@@ -1,7 +1,12 @@
 #include "hash_tables.h"
 
 void print_node(hash_node_t *curr, hash_node_t *ptr);
-hash_node_t *find_next(hash_node_t **curr,int *index, int size);
+hash_node_t *find_next(hash_node_t **curr, int *index, int size);
+
+/**
+ * hash_table_print - Function that prints a hash table.
+ * @ht: Pointer to hash table.
+ */
 
 void hash_table_print(const hash_table_t *ht)
 {
@@ -9,11 +14,11 @@ void hash_table_print(const hash_table_t *ht)
 	hash_node_t *find1;
 	hash_node_t *find2;
 
-	if(!ht || !(ht->array))
+	if (!ht || !(ht->array))
 		return;
 
 	putchar('{');
-	while (index < ht->size -1)
+	while (index < ht->size - 1)
 	{
 		find1 = find_next(&(ht->array[index]), (int *)&index, ht->size);
 		index++;
@@ -23,9 +28,15 @@ void hash_table_print(const hash_table_t *ht)
 	putchar('}');
 	putchar('\n');
 }
+
+/**
+ * print_node - Function that prints the content of a linked list.
+ * @curr: Pointer current.
+ * @ptr: Pointer next.
+ */
 void print_node(hash_node_t *curr, hash_node_t *ptr)
 {
-	while(curr)
+	while (curr)
 	{
 		printf("'%s': '%s'", curr->key, curr->value);
 		if ((curr->next) || (!curr->next && ptr))
@@ -33,9 +44,18 @@ void print_node(hash_node_t *curr, hash_node_t *ptr)
 		curr = curr->next;
 	}
 }
-hash_node_t *find_next(hash_node_t **curr,int *index, int size)
+
+/**
+ * find_next - Function that finds a node that is not null.
+ * @curr: Pointer current.
+ * @index: Pointer to index.
+ * @size: Size hash table.
+ * Return: Function that returns a pointer.
+ */
+
+hash_node_t *find_next(hash_node_t **curr, int *index, int size)
 {
-	while(!*curr)
+	while (!*curr)
 	{
 		if (*index == size - 1)
 			return (*curr);
