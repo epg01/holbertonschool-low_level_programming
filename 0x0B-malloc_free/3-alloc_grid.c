@@ -1,109 +1,63 @@
 #include "holberton.h"
 
-unsigned int Creando_Array(int **DoblePointer, int wigth, int height);
-void Inicializacion_Del_Array(int **Doble_Pointer, int width, int height);
-
-/**
- * alloc_grid - Function that returns a pointer to a 2 dimensional
- *              array of integers
- * @width:  Width array.
- * @height: Height array.
- * Return: The function should return NULL on failure
- *         If width or height is 0 or negative, return NULL
- */
-
-int **alloc_grid(int width, int height)
-{
-	if (width > 0 && height > 0)
-	{
-		int **Doble_Pointer = (int **)malloc(height * sizeof(int *));
-
-		if (Doble_Pointer)
-		{
-			unsigned char State;
-
-			State = Creando_Array(Doble_Pointer, width, height);
-
-			if (!State)
-			{
-				Inicializacion_Del_Array(Doble_Pointer, width, height);
-				return (Doble_Pointer);
-			}
-			else
-			{
-				free(Doble_Pointer);
-				return (NULL);
-			}
-		}
-		else
-		{
-			free(Doble_Pointer);
-			return (NULL);
-		}
-	}
-	else
-		return (NULL);
+void  init(int **ptrheight, int height, int width){
+    int i = 0;
+    while(height--) {
+          while(i < width) {
+               *(*ptrheight)++ = 0;
+               i++;
+          }
+          i = 0;
+          ptrheight++;           // incrementamos el puntero
+    }
 }
-
-/**
- * Inicializacion_Del_Array - Function to initialize the array with zeros.
- * @Doble_Pointer: Pointer pointing to a group n of pointers.
- * @width:  Width array.
- * @height: Height array.
- */
-
-void Inicializacion_Del_Array(int **Doble_Pointer, int width, int height)
-{
-	int Solve_Width = width;
-
-	while (height)
-	{
-		if (width)
-			(*Doble_Pointer)[--width] = 0;
-		else
-		{
-			Doble_Pointer++;
-			width = Solve_Width;
-			height--;
-		}
-	}
+// while (height == 0) { 
+//         height--;
+// }
+// height--;
+void Free(int **ptrheight, int positionptr, int height) {
+      while (positionptr < height) {
+              free(*(--ptrheight));
+              positionptr++;
+      }
 }
+int *alloc_wight(int **ptrheight, int height, int width) {
+        int copytemp = height;
+        int **temp = ptrheight;
+        while (height > 0)  
+        {
+              *(ptrheight) = (int *)malloc(sizeof(int) * width);
+                          // (casteo)funcion
 
-/**
- * Creando_Array - Function to create the matrix of width * height.
- * @DoblePointer: Pointer pointing to a group n of pointers.
- * @width:  Width array.
- * @height: Height array.
- * Return: Returns 1 if the zero array could not be created
- *         where it was created.
- */
-
-unsigned int Creando_Array(int **DoblePointer, int width, int height)
-{
-	int Counter = height;
-	unsigned char State1, State0;
-
-	State0 = State1 = 1;
-	while (State0)
-	{
-		if (Counter && State1)
-		{
-			Counter--;
-			*DoblePointer = (int *)malloc(width * sizeof(int));
-		}
-		if (*DoblePointer && State1)
-			DoblePointer++;
-		else if (Counter < height)
-		{
-			free(*DoblePointer--);
-			Counter++;
-			State1 = 0;
-		}
-
-		if (Counter == height)
-			return (1);
-		else if (Counter == 0)
-			State0--;
-	}
-	return (0);
+              if (!(*ptrheight)){
+                    Free(ptrheight, height, copytemp);
+                    return NULL;
+              }
+              ptrheight++;
+              height--;
+        }
+        return ptrheight;
+}
+int **alloc_grid(int width, int height) {
+      if (width && height){
+            // Crear.
+            int **State = NULL;
+            int **ptrheight = (int **)malloc(sizeof(int *) * height);
+            if (!ptrheight)  // ptrheight == NULL
+            {
+                  return ptrheight; 
+            }
+            // crea el wigt
+            State = alloc_wight(ptrheight, height ,width);
+            if (!State) // State == NULL
+            {
+                  free(ptrheight);
+                  return NULL;
+            }
+            // inicialización estructuras de datos.
+            init(ptrheight, height, width);
+      }
+      else {
+          return NULL; 
+      }
 }
